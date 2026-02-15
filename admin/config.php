@@ -5,7 +5,7 @@ $keycode = "TanyaDuoTri!!!";
 $host	= "127.0.0.1";
 $user	= "root";
 $pass	= "";
-$name   = "dashboard";
+$name   = "admin_nexvorta";
 $link = mysqli_connect($host, $user, $pass, $name);
 
 if (!$link) {
