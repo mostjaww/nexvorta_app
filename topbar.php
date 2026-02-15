@@ -27,9 +27,9 @@
               <a href="#" style="color: #023e8a"><span>Products</span>
                 <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
-                <li><a href="products/crafts%26umkm.html">Crafts & UMKM Products</a></li>
-                <li><a href="products/agriculture%26plantations.html">Agriculture & Plantations Products</a></li>
-                <li><a href="products/livestockfarm.html">Livestock Farm Products</a></li>
+                <li><a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=products/crafts-umkm"; ?>">Crafts & UMKM Products</a></li>
+                <li><a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=products/agriculture-plantations"; ?>">Agriculture & Plantations Products</a></li>
+                <li><a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=products/livestockfarm"; ?>">Livestock Farm Products</a></li>
               </ul>
             </li>
             <li><a href="#team" style="color: #023e8a">Our Team</a></li>
