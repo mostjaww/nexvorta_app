@@ -4,7 +4,7 @@
 
     <main class="main">
 
-        <section id="hero" class="hero section">
+        <section id="hero" class="hero section dark-background">
             <div class="container" data-aos="fade-up">
                 <div class="justify-content-center row">
                     <div class="text-center col-lg-8">
@@ -21,7 +21,7 @@
             </div>
         </section>
 
-        <section id="mission" class="mission">
+        <section id="mission" class="hero section light-background">
             <div class="container" data-aos="fade-up">
                 <div class="justify-content-center row">
                     <div class="text-center col-lg-8">
@@ -39,7 +39,7 @@
             </div>
         </section>
 
-        <section id="vision" class="vision section-bg">
+        <section id="vision" class="hero section dark">
             <div class="container" data-aos="fade-up">
                 <div class="justify-content-center row">
                     <div class="text-center col-lg-8">

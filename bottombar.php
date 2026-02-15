@@ -9,11 +9,11 @@
             <p>Medan, Indonesia</p>
             <p class="mt-3">
               <strong>Phone:</strong>
-              <a href="tel:+6285119064758" style="font-size: medium;">+62 851-1906-4758</a>
+              <a href="tel:+6285119064758" style="font-size: small;">+62 851-1906-4758</a>
             </p>
             <p>
               <strong>Email:</strong>
-              <a href="mailto:nexvorta@gmail.com" style="font-size: medium;">nexvorta@gmail.com</a>
+              <a href="mailto:nexvorta@gmail.com" style="font-size: small;">nexvorta@gmail.com</a>
             </p>
           </div>
         </div>
@@ -21,16 +21,16 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><i class="bi-chevron-right bi"></i> <a href="#">Home</a></li>
+            <li><i class="bi-chevron-right bi"></i> <a href="dashboard">Home</a></li>
             <li>
-              <i class="bi-chevron-right bi"></i> <a href="#">About us</a>
+              <i class="bi-chevron-right bi"></i> <a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=about-us"; ?>">About us</a>
             </li>
             <li>
-              <i class="bi-chevron-right bi"></i> <a href="#">Services</a>
+              <i class="bi-chevron-right bi"></i> <a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=services"; ?>">Services</a>
             </li>
             <li>
               <i class="bi-chevron-right bi"></i>
-              <a href="terms%26condition.html">Terms of service</a>
+              <a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=terms-condition"; ?>">Terms of service</a>
             </li>
           </ul>
         </div>
