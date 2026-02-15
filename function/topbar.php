@@ -1,0 +1,52 @@
+<header id="header" class="fixed-top d-flex align-items-center header">
+    <div class="position-relative d-flex align-items-center container-fluid container-xl">
+      <div class="d-flex align-items-center justify-content-between w-100 header-box" style="
+            background: #fff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+          ">
+        <a href="index-2.html" class="d-flex align-items-center me-auto logo">
+          <h1 class="sitename" style="font-weight: 700; margin: 0; color: var(--accent-color)">
+            NEXVORTA
+          </h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#hero" class="active">Home</a></li>
+            <li class="dropdown">
+              <a href="#" style="color: #023e8a"><span>Company</span>
+                <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="#">Certification</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" style="color: #023e8a"><span>Products</span>
+                <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="products/crafts%26umkm.html">Crafts & UMKM Products</a></li>
+                <li><a href="products/agriculture%26plantations.html">Agriculture & Plantations Products</a></li>
+                <li><a href="products/livestockfarm.html">Livestock Farm Products</a></li>
+              </ul>
+            </li>
+            <li><a href="#team" style="color: #023e8a">Our Team</a></li>
+            <li><a href="#contact" style="color: #023e8a">Contact Us</a></li>
+            <li class="dropdown">
+              <a href="#" style="color: #023e8a"><span>Download</span>
+                <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#"><i class="bi bi-google-play"></i> Google Play Store</a></li>
+                <li><a href="#"><i class="bi bi-apple"></i> Apple App Store</a></li>
+              </ul>
+            </li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list" style="color: #023e8a"></i>
+        </nav>
+
+        <a class="btn-getstarted" href="#about">Login</a>
+      </div>
+    </div>
+  </header>
