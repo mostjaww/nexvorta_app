@@ -1,0 +1,187 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f4f7f6;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.login-container {
+  display: flex;
+  height: 100vh;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Bagian Kiri (Visual) */
+.login-left {
+  flex: 1;
+  background: linear-gradient(135deg, #0d47a1 0%, #42a5f5 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  padding: 40px;
+  text-align: center;
+}
+
+.login-left::before {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: url('assets/dist/img/pattern.png') repeat;
+  opacity: 0.1;
+  animation: rotate 60s linear infinite;
+}
+
+.login-logo {
+  width: 500px;
+  z-index: 2;
+  filter: drop_shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.app-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  z-index: 2;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.app-subtitle {
+  font-size: 1rem;
+  opacity: 0.9;
+  z-index: 2;
+  font-weight: 300;
+}
+
+/* Bagian Kanan (Form) */
+.login-right {
+  flex: 0 0 450px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  position: relative;
+}
+
+.login-header {
+  margin-bottom: 40px;
+}
+
+.login-header h3 {
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.login-header p {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Form Styling */
+.form-floating>.form-control {
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  background: #fdfdfd;
+}
+
+.form-floating>.form-control:focus {
+  border-color: #42a5f5;
+  box-shadow: 0 0 0 0.25rem rgba(66, 165, 245, 0.25);
+}
+
+.btn-primary-custom {
+  background: linear-gradient(to right, #1e88e5, #42a5f5);
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.btn-primary-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(30, 136, 229, 0.4);
+}
+
+.btn-wa {
+  background-color: #25D366;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  width: 100%;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+
+.btn-wa:hover {
+  background-color: #128C7E;
+  color: white;
+}
+
+.btn-tele {
+  background-color: #0088cc;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  width: 100%;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+
+.btn-tele:hover {
+  background-color: #006699;
+  color: white;
+}
+
+.footer-copy {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-left {
+    display: none;
+  }
+
+  /* Sembunyikan bagian kiri di HP agar fokus ke login */
+  .login-right {
+    flex: 1;
+    padding: 30px;
+  }
+}
