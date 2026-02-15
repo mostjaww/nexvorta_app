@@ -6,7 +6,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
           ">
-        <a href="index-2.html" class="d-flex align-items-center me-auto logo">
+        <a href="dashboard" class="d-flex align-items-center me-auto logo">
           <h1 class="sitename" style="font-weight: 700; margin: 0; color: var(--accent-color)">
             NEXVORTA
           </h1>
@@ -19,7 +19,7 @@
               <a href="#" style="color: #023e8a"><span>Company</span>
                 <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
-                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=about-us"; ?>">About Us</a></li>
                 <li><a href="#">Certification</a></li>
               </ul>
             </li>
@@ -38,8 +38,8 @@
               <a href="#" style="color: #023e8a"><span>Download</span>
                 <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
-                <li><a href="#"><i class="bi bi-google-play"></i> Google Play Store</a></li>
-                <li><a href="#"><i class="bi bi-apple"></i> Apple App Store</a></li>
+                <li><a href="https://play.google.com/store/apps"><i class="bi bi-google-play"></i> Google Play Store</a></li>
+                <li><a href="https://www.apple.com/id/app-store/"><i class="bi bi-apple"></i> Apple App Store</a></li>
               </ul>
             </li>
           </ul>
