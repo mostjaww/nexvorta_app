@@ -40,15 +40,15 @@
           <ul>
             <li>
               <i class="bi-chevron-right bi"></i>
-              <a href="#">Crafts & UMKM Products</a>
+              <a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=products/crafts-umkm"; ?>">Crafts & UMKM Products</a>
             </li>
             <li>
               <i class="bi-chevron-right bi"></i>
-              <a href="#">Agriculture & Plantations Products</a>
+              <a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=products/agriculture-plantations"; ?>">Agriculture & Plantations Products</a>
             </li>
             <li>
               <i class="bi-chevron-right bi"></i>
-              <a href="#">Livestock Farm Products</a>
+              <a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=products/livestockfarm"; ?>">Livestock Farm Products</a>
             </li>
           </ul>
         </div>
