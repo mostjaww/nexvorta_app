@@ -139,8 +139,8 @@ if (isset($_POST['btnLogin'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-    <meta name="description" content="Perizinan Deli Serdang">
-    <meta name="author" content="Handryan">
+    <meta name="description" content="Login to Nexvorta Dashboard">
+    <meta name="author" content="Nexvorta Team">
     <title>Login | <?php echo $title_dashboard; ?></title>
     <link rel="shortcut icon" href="<?php echo $title_icon; ?>">
     <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -188,6 +188,7 @@ if (isset($_POST['btnLogin'])) {
                         <input type="text" class="form-control text-center fw-bold letter-spacing-2" id="otp" name="otp" placeholder="Kode OTP" style="letter-spacing: 5px; font-size: 1.2rem;">
                         <label for="otp">Masukkan Kode OTP</label>
                     </div>
+                    
                     <button type="submit" name="btnLogin" class="btn btn-primary-custom mb-3">MASUK KE DASHBOARD</button>
                 <?php else: ?>
 
@@ -199,12 +200,16 @@ if (isset($_POST['btnLogin'])) {
                         <i class="fab fa-telegram fa-lg"></i> Kirim OTP via Telegram
                     </button>
                 <?php endif; ?>
+                <br>
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-secondary mb-3" onclick="location.href='/nexvorta_apps/dashboard'">KEMBALI KE DASHBOARD</button>
+                </div>
 
                 <input type="hidden" id="koor" name="koor">
             </form>
 
             <div class="footer-copy">
-                &copy; <?php echo date('Y'); ?> Ryan Purba.<br>All rights reserved.
+                &copy; <?php echo date('Y'); ?> Nexvorta.<br>All rights reserved.
             </div>
         </div>
     </div>

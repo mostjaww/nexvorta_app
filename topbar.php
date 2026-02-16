@@ -42,11 +42,17 @@
                 <li><a href="https://www.apple.com/id/app-store/"><i class="bi bi-apple"></i> Apple App Store</a></li>
               </ul>
             </li>
+            <li class="dropdown">
+              <a href="#" style="color: #023e8a"><span>Login</span>
+                <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="admin/">Sebagai Penjual</a></li>
+                <li><a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=customer/login"; ?>">Sebagai Pembeli</a></li>
+              </ul>
+            </li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list" style="color: #023e8a"></i>
         </nav>
-
-        <a class="btn-getstarted" href="admin/">Login</a>
       </div>
     </div>
   </header>
