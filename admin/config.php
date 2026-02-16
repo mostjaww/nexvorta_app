@@ -1,5 +1,6 @@
 <?php
 $keycode = "TanyaDuoTri!!!";
+date_default_timezone_set("Asia/Jakarta");
 
 // --- KONEKSI 1 (Dashboard) ---
 $host	= "127.0.0.1";
