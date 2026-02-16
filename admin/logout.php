@@ -27,7 +27,7 @@ session_destroy();
             showConfirmButton: false
         }).then(() => {
             // Redirect ke halaman login setelah alert selesai/ditutup
-            window.location.href = '/admin/';
+            window.location.href = '/nexvorta_apps/admin/';
         });
     </script>
 
