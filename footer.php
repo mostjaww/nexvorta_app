@@ -19,7 +19,7 @@
     // Loading bubble
     addMessageToChat('bot', 'Typing...');
 
-    fetch('function/chat_ai.php', {
+    fetch('function/nexva-ai.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
