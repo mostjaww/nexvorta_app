@@ -31,10 +31,19 @@ if (!isset($_GET['token']) || $_GET['token'] != encrypt(date('Ymd'))) {
     if (!isset($_GET['hal']) || $_GET['hal'] == '') {
         include_once 'dashboard.php';
     } else {
-        $halaman = $_GET['hal'] . ".php";
+        $allowed_pages = [
+            'dashboard',
+            'about-us',
+            'products/crafts-umkm',
+            'products/agriculture-plantations',
+            'products/livestockfarm',
+            'user/login',
+            'privacy-policy',
+            'terms'
+        ];
 
-        if (file_exists($halaman)) {
-            include_once $halaman;
+        if (isset($_GET['hal']) && in_array($_GET['hal'], $allowed_pages)) {
+            include_once $_GET['hal'] . '.php';
         } else {
             include_once '404.php';
         }

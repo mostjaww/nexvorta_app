@@ -1,0 +1,220 @@
+/* =========================
+   GLOBAL BACKGROUND
+========================= */
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #023e8a, #0077b6);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  backdrop-filter: blur(4px);
+}
+
+/* =========================
+   LEFT SIDE (VISUAL)
+========================= */
+.login-left {
+  flex: 1;
+  background: linear-gradient(135deg, #0d47a1, #42a5f5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  padding: 60px;
+  text-align: center;
+}
+
+.login-left::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: url('../dist/img/pattern.png') repeat;
+  opacity: 0.05;
+  animation: rotate 80s linear infinite;
+}
+
+/* Logo */
+.login-logo {
+  max-width: 260px;
+  z-index: 2;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.25));
+}
+
+/* Title */
+.app-title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  z-index: 2;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.app-subtitle {
+  font-size: 1rem;
+  opacity: 0.85;
+  z-index: 2;
+  font-weight: 300;
+}
+
+/* =========================
+   RIGHT SIDE (FORM)
+========================= */
+.login-right {
+  flex: 0 0 480px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.08);
+}
+
+.login-header {
+  margin-bottom: 35px;
+}
+
+.login-header h3 {
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+.login-header p {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* =========================
+   FORM
+========================= */
+.form-floating>.form-control {
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+  background: #fafafa;
+  transition: 0.3s ease;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #0077b6;
+  background: #ffffff;
+}
+
+/* =========================
+   BUTTON PRIMARY
+========================= */
+.btn-primary {
+  background: linear-gradient(135deg, #023e8a, #0077b6);
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(2, 62, 138, 0.3);
+}
+
+/* =========================
+   TELEGRAM BUTTON
+========================= */
+.btn-tele {
+  background-color: #0088cc;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  width: 100%;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: 0.3s ease;
+}
+
+.btn-tele:hover {
+  background-color: #006699;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 136, 204, 0.3);
+}
+
+/* =========================
+   WHATSAPP BUTTON
+========================= */
+.btn-wa {
+  background-color: #25D366;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  width: 100%;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: 0.3s ease;
+}
+
+.btn-wa:hover {
+  background-color: #128C7E;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer-copy {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 992px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-left {
+    display: none;
+  }
+
+  .login-right {
+    flex: 1;
+    width: 100%;
+    padding: 40px 30px;
+    box-shadow: none;
+  }
+}

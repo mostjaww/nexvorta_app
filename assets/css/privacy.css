@@ -1,0 +1,67 @@
+body {
+    background: linear-gradient(135deg, #023e8a, #0077b6);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.policy-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    padding: 50px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.policy-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.policy-header h1 {
+    font-weight: 700;
+    color: #023e8a;
+}
+
+.last-updated {
+    font-size: 14px;
+    color: #888;
+}
+
+h2 {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+p {
+    color: #555;
+    line-height: 1.7;
+}
+
+ul li {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+}
+
+a {
+    color: #023e8a;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .policy-card {
+        padding: 30px;
+    }
+}

@@ -12,9 +12,9 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Open Sans",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Jost",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Jost", sans-serif;
+  --nav-font: "Poppins", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
@@ -27,18 +27,26 @@
   /* Color for headings, subheadings and title throughout the website */
   --accent-color: #47b2e4;
   /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --surface-color: #ffffff;
+  /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff;
+  /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: #ffffff;  /* The default color of the main navmenu links */
-  --nav-hover-color: #47b2e4; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #47b2e4; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: #ffffff;
+  /* The default color of the main navmenu links */
+  --nav-hover-color: #47b2e4;
+  /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #ffffff;
+  /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #ffffff;
+  /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: #444444;
+  /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #47b2e4;
+  /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -137,7 +145,7 @@ h6 {
   0% {
     transform: rotate(0deg);
   }
-  
+
   100% {
     transform: rotate(360deg);
   }
@@ -186,7 +194,7 @@ h6 {
 }
 
 .header .btn-getstarted:hover,
-  .header .btn-getstarted:focus:hover {
+.header .btn-getstarted:focus:hover {
   color: var(--contrast-color);
   background: color-mix(in srgb, var(--accent-color), transparent 15%);
 }
@@ -195,13 +203,13 @@ h6 {
   .header .logo {
     order: 1;
   }
-  
+
   .header .btn-getstarted {
     order: 2;
     margin: 0 15px 0 0;
     padding: 6px 15px;
   }
-  
+
   .header .navmenu {
     order: 3;
   }
@@ -223,7 +231,7 @@ h6 {
   .navmenu {
     padding: 0;
   }
-  
+
   .navmenu ul {
     margin: 0;
     padding: 0;
@@ -231,11 +239,11 @@ h6 {
     list-style: none;
     align-items: center;
   }
-  
+
   .navmenu li {
     position: relative;
   }
-  
+
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-color);
@@ -249,7 +257,7 @@ h6 {
     white-space: nowrap;
     transition: 0.3s;
   }
-  
+
   .navmenu a i,
   .navmenu a:focus i {
     font-size: 12px;
@@ -257,17 +265,17 @@ h6 {
     margin-left: 5px;
     transition: 0.3s;
   }
-  
+
   .navmenu li:last-child a {
     padding-right: 0;
   }
-  
+
   .navmenu li:hover>a,
-    .navmenu .active,
-    .navmenu .active:focus {
+  .navmenu .active,
+  .navmenu .active:focus {
     color: var(--nav-hover-color);
   }
-  
+
   .navmenu .dropdown ul {
     margin: 0;
     padding: 10px 0;
@@ -283,51 +291,51 @@ h6 {
     z-index: 99;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
   }
-  
+
   .navmenu .dropdown ul li {
     min-width: 200px;
   }
-  
+
   .navmenu .dropdown ul a {
     padding: 10px 20px;
     font-size: 15px;
     text-transform: none;
     color: var(--nav-dropdown-color);
   }
-  
+
   .navmenu .dropdown ul a i {
     font-size: 12px;
   }
-  
+
   .navmenu .dropdown ul a:hover,
-    .navmenu .dropdown ul .active:hover,
-    .navmenu .dropdown ul li:hover>a {
+  .navmenu .dropdown ul .active:hover,
+  .navmenu .dropdown ul li:hover>a {
     color: var(--nav-dropdown-hover-color);
   }
-  
+
   .navmenu .dropdown:hover>ul {
     opacity: 1;
     top: 100%;
     visibility: visible;
   }
-  
+
   .navmenu .dropdown .dropdown ul {
     top: 0;
     left: -90%;
     visibility: hidden;
   }
-  
+
   .navmenu .dropdown .dropdown:hover>ul {
     opacity: 1;
     top: 0;
     left: -100%;
     visibility: visible;
   }
-  
+
   .navmenu .megamenu {
     position: static;
   }
-  
+
   .navmenu .megamenu ul {
     margin: 0;
     padding: 10px;
@@ -344,30 +352,30 @@ h6 {
     border-radius: 4px;
     z-index: 99;
   }
-  
+
   .navmenu .megamenu ul li {
     flex: 1;
   }
-  
+
   .navmenu .megamenu ul li a,
   .navmenu .megamenu ul li:hover>a {
     padding: 10px 20px;
     font-size: 15px;
     color: var(--nav-dropdown-color);
   }
-  
+
   .navmenu .megamenu ul li a:hover,
-    .navmenu .megamenu ul li .active,
-    .navmenu .megamenu ul li .active:hover {
+  .navmenu .megamenu ul li .active,
+  .navmenu .megamenu ul li .active:hover {
     color: var(--nav-dropdown-hover-color);
   }
-  
+
   .navmenu .megamenu:hover>ul {
     opacity: 1;
     top: 100%;
     visibility: visible;
   }
-  
+
   .navmenu .dd-box-shadow {
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
   }
@@ -383,12 +391,12 @@ h6 {
     cursor: pointer;
     transition: color 0.3s;
   }
-  
+
   .navmenu {
     padding: 0;
     z-index: 9997;
   }
-  
+
   .navmenu ul {
     display: none;
     list-style: none;
@@ -403,7 +411,7 @@ h6 {
     z-index: 9998;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
   }
-  
+
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-dropdown-color);
@@ -417,7 +425,7 @@ h6 {
     white-space: nowrap;
     transition: 0.3s;
   }
-  
+
   .navmenu a i,
   .navmenu a:focus i {
     font-size: 12px;
@@ -432,26 +440,26 @@ h6 {
     transition: 0.3s;
     background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
   }
-  
+
   .navmenu a i:hover,
-    .navmenu a:focus i:hover {
+  .navmenu a:focus i:hover {
     background-color: var(--accent-color);
     color: var(--contrast-color);
   }
-  
+
   .navmenu a:hover,
-    .navmenu .active,
-    .navmenu .active:focus {
+  .navmenu .active,
+  .navmenu .active:focus {
     color: var(--nav-dropdown-hover-color);
   }
-  
+
   .navmenu .active i,
   .navmenu .active:focus i {
     background-color: var(--accent-color);
     color: var(--contrast-color);
     transform: rotate(180deg);
   }
-  
+
   .navmenu .dropdown ul {
     position: static;
     display: none;
@@ -463,20 +471,20 @@ h6 {
     box-shadow: none;
     transition: all 0.5s ease-in-out;
   }
-  
+
   .navmenu .dropdown ul ul {
     background-color: rgba(33, 37, 41, 0.1);
   }
-  
-  .navmenu .dropdown > .dropdown-active {
+
+  .navmenu .dropdown>.dropdown-active {
     display: block;
     background-color: rgba(33, 37, 41, 0.03);
   }
-  
+
   .mobile-nav-active {
     overflow: hidden;
   }
-  
+
   .mobile-nav-active .mobile-nav-toggle {
     color: #fff;
     position: absolute;
@@ -486,7 +494,7 @@ h6 {
     margin-right: 0;
     z-index: 9999;
   }
-  
+
   .mobile-nav-active .navmenu {
     position: fixed;
     overflow: hidden;
@@ -494,8 +502,8 @@ h6 {
     background: rgba(33, 37, 41, 0.8);
     transition: 0.3s;
   }
-  
-  .mobile-nav-active .navmenu > ul {
+
+  .mobile-nav-active .navmenu>ul {
     display: block;
   }
 }
@@ -687,7 +695,7 @@ h6 {
   0% {
     transform: rotate(0deg);
   }
-  
+
   100% {
     transform: rotate(360deg);
   }
@@ -698,33 +706,26 @@ h6 {
 --------------------------------------------------------------*/
 .scroll-top {
   position: fixed;
-  visibility: hidden;
-  opacity: 0;
-  right: 15px;
-  bottom: -15px;
-  z-index: 99999;
-  background-color: var(--accent-color);
-  width: 44px;
-  height: 44px;
-  border-radius: 50px;
-  transition: all 0.4s;
-}
-
-.scroll-top i {
-  font-size: 24px;
-  color: var(--contrast-color);
-  line-height: 0;
+  bottom: 95px;
+  /* 🔥 Naikkan di atas chat */
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  background: #0077b6;
+  color: #fff;
+  border-radius: 50%;
+  z-index: 1040;
+  /* Lebih rendah dari chat */
+  transition: 0.3s;
 }
 
 .scroll-top:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
-  color: var(--contrast-color);
+  background: #333;
 }
 
 .scroll-top.active {
   visibility: visible;
   opacity: 1;
-  bottom: 15px;
 }
 
 /*--------------------------------------------------------------
@@ -762,11 +763,11 @@ h6 {
   font-size: 14px;
 }
 
-.page-title .breadcrumbs ol li + li {
+.page-title .breadcrumbs ol li+li {
   padding-left: 10px;
 }
 
-.page-title .breadcrumbs ol li + li::before {
+.page-title .breadcrumbs ol li+li::before {
   content: "/";
   display: inline-block;
   padding-right: 10px;
@@ -786,7 +787,7 @@ section,
 }
 
 @media (max-width:1199px) {
-  
+
   section,
   .section {
     scroll-margin-top: 66px;
@@ -919,13 +920,13 @@ section,
     font-size: 28px;
     line-height: 36px;
   }
-  
+
   .hero p {
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
   }
-  
+
   .hero .btn-get-started,
   .hero .btn-watch-video {
     font-size: 13px;
@@ -936,7 +937,7 @@ section,
   0% {
     transform: translateY(10px);
   }
-  
+
   100% {
     transform: translateY(-10px);
   }
@@ -1335,11 +1336,11 @@ section,
   .work-process .steps-image {
     height: 240px;
   }
-  
+
   .work-process .steps-content {
     padding: 35px 25px 25px;
   }
-  
+
   .work-process .steps-content h3 {
     font-size: 22px;
   }
@@ -1349,15 +1350,15 @@ section,
   .work-process .steps-item {
     margin-bottom: 30px;
   }
-  
+
   .work-process .steps-image {
     height: 220px;
   }
-  
+
   .work-process .steps-content {
     padding: 30px 20px 20px;
   }
-  
+
   .work-process .steps-content .steps-number {
     width: 50px;
     height: 50px;
@@ -1365,12 +1366,12 @@ section,
     left: 25px;
     top: -25px;
   }
-  
+
   .work-process .steps-content h3 {
     font-size: 20px;
     margin-bottom: 12px;
   }
-  
+
   .work-process .steps-content p {
     font-size: 14px;
     margin-bottom: 20px;
@@ -1464,7 +1465,7 @@ section,
 }
 
 .portfolio .portfolio-filters li:hover,
-  .portfolio .portfolio-filters li.filter-active {
+.portfolio .portfolio-filters li.filter-active {
   color: var(--contrast-color);
   background-color: var(--accent-color);
 }
@@ -1526,7 +1527,7 @@ section,
 }
 
 .portfolio .portfolio-item .portfolio-info .preview-link:hover,
-  .portfolio .portfolio-item .portfolio-info .details-link:hover {
+.portfolio .portfolio-item .portfolio-info .details-link:hover {
   color: var(--accent-color);
 }
 
@@ -1663,7 +1664,7 @@ section,
   color: var(--contrast-color);
 }
 
-.team .team-member .social a + a {
+.team .team-member .social a+a {
   margin-left: 8px;
 }
 
@@ -2040,7 +2041,7 @@ section,
     text-align: center;
     margin-bottom: 2rem;
   }
-  
+
   .subscribe .cta-image {
     text-align: center;
   }
@@ -2114,7 +2115,7 @@ section,
 }
 
 .recent-blog-postst .post-item:hover .post-title,
-  .recent-blog-postst .post-item:hover .readmore {
+.recent-blog-postst .post-item:hover .readmore {
   color: var(--accent-color);
 }
 
@@ -2271,7 +2272,7 @@ section,
   font-size: 15px;
 }
 
-.portfolio-details .portfolio-info ul li + li {
+.portfolio-details .portfolio-info ul li+li {
   margin-top: 10px;
 }
 
@@ -2402,7 +2403,7 @@ section,
   margin: 0;
 }
 
-.blog-posts .meta-top ul li + li {
+.blog-posts .meta-top ul li+li {
   padding-left: 20px;
 }
 
@@ -3106,39 +3107,39 @@ section,
   .blog-comments .comments-header {
     margin-bottom: 30px;
   }
-  
+
   .blog-comments .comments-header .title {
     font-size: 24px;
   }
-  
+
   .blog-comments .comments-header .comments-stats {
     padding: 6px 15px;
   }
-  
+
   .blog-comments .comments-header .comments-stats .count {
     font-size: 20px;
   }
-  
+
   .blog-comments .comments-header .comments-stats .label {
     font-size: 12px;
   }
-  
+
   .blog-comments .comment-content {
     padding: 20px;
   }
-  
+
   .blog-comments .comment-header .user-info h4 {
     font-size: 16px;
   }
-  
+
   .blog-comments .comment-header .user-info .time-badge {
     font-size: 13px;
   }
-  
+
   .blog-comments .comment-body p {
     font-size: 14px;
   }
-  
+
   .blog-comments .comment-actions .action-btn {
     padding: 6px 12px;
     font-size: 13px;
@@ -3203,29 +3204,29 @@ section,
 }
 
 .blog-comment-form .input-group input::placeholder,
-  .blog-comment-form .input-group textarea::placeholder {
+.blog-comment-form .input-group textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 60%);
 }
 
 .blog-comment-form .input-group input:hover,
-  .blog-comment-form .input-group textarea:hover {
+.blog-comment-form .input-group textarea:hover {
   border-color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
 .blog-comment-form .input-group input:focus,
-  .blog-comment-form .input-group textarea:focus {
+.blog-comment-form .input-group textarea:focus {
   outline: none;
   border-color: var(--accent-color);
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-color), transparent 90%);
 }
 
 .blog-comment-form .input-group input:invalid:not(:placeholder-shown),
-  .blog-comment-form .input-group textarea:invalid:not(:placeholder-shown) {
+.blog-comment-form .input-group textarea:invalid:not(:placeholder-shown) {
   border-color: #dc3545;
 }
 
 .blog-comment-form .input-group input:invalid:not(:placeholder-shown)+.error-text,
-  .blog-comment-form .input-group textarea:invalid:not(:placeholder-shown) + .error-text {
+.blog-comment-form .input-group textarea:invalid:not(:placeholder-shown)+.error-text {
   opacity: 1;
   transform: translateY(0);
 }
@@ -3271,11 +3272,11 @@ section,
   .blog-comment-form {
     padding: 1.5rem;
   }
-  
+
   .blog-comment-form .form-header h3 {
     font-size: 1.5rem;
   }
-  
+
   .blog-comment-form button[type=submit] {
     width: 100%;
     padding: 0.875rem 1rem;
@@ -3376,20 +3377,20 @@ section,
   .error-404 {
     padding: 60px 0;
   }
-  
+
   .error-404 .error-code {
     font-size: clamp(4rem, 12vw, 8rem);
   }
-  
+
   .error-404 .error-title {
     font-size: 1.5rem;
   }
-  
+
   .error-404 .error-text {
     font-size: 1rem;
     padding: 0 20px;
   }
-  
+
   .error-404 .search-box {
     margin: 0 20px;
   }
@@ -3573,40 +3574,37 @@ section,
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 999;
-  font-family: 'Poppins', sans-serif;
+  z-index: 1050;
 }
 
 .chat-btn {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: var(--accent-color);
-  color: white;
+  background: linear-gradient(135deg, #0d47a1, #42a5f5);
+  color: #fff;
   border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  font-size: 24px;
-  transition: all 0.3s ease;
+  font-size: 22px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
 }
 
 .chat-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.08);
 }
 
 .chat-window {
   position: absolute;
   bottom: 80px;
   right: 0;
-  width: 350px;
-  height: 500px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
+  width: 320px;
+  height: 420px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  animation: slideUp 0.3s ease;
+  overflow: hidden;
 }
 
 @keyframes slideUp {
@@ -3614,6 +3612,7 @@ section,
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
