@@ -15,69 +15,71 @@
 
 <body class="bg-light">
 
-    <div class="container-fluid min-vh-100 d-flex align-items-center">
-        <div class="row shadow-lg rounded-4 overflow-hidden mx-auto" style="max-width: 900px;">
+    <div class="d-flex align-items-center container-fluid min-vh-100">
+        <div class="shadow-lg mx-auto rounded-4 overflow-hidden row" style="max-width: 900px;">
 
             <!-- LEFT SIDE -->
-            <div class="col-lg-6 d-none d-lg-flex text-white flex-column justify-content-center align-items-center p-5" style="background-color: #667eea;">
+            <div class="d-lg-flex flex-column align-items-center justify-content-center p-5 text-white col-lg-6 d-none" style="background-color: #0077b6;">
                 <img src="<?php echo $base_url; ?>assets/img/hero.png"
                     class="mb-4" style="max-width:200px;">
 
                 <h2 class="fw-bold">NEXVORTA</h2>
-                <p class="text-center opacity-75">
-                    Export & Import Solutions<br>
-                    Solusi Ekspor & Impor Terpercaya untuk Pertumbuhan Bisnis Anda
+                <p class="opacity-75 text-center">
+                    Export & Import Solutions Terpercaya untuk Pertumbuhan Bisnis Anda
                 </p>
             </div>
 
             <!-- RIGHT SIDE -->
-            <div class="col-lg-6 bg-white p-5">
+            <div class="bg-white p-5 col-lg-6">
 
                 <div class="mb-4 text-center">
-                    <h3 class="fw-bold">Login to Continue</h3>
-                    <p class="text-muted">Masuk untuk melanjutkan</p>
+                    <h3 class="fw-bold">Nexvorta Login</h3>
+                    <p class="text-muted">Login to continue</p>
+                </div>
+
+                <div class="mb-3 text-start">
+                    <a href="<?php echo $base_url; ?>"
+                        class="btn-back">
+                        <i class="fa-arrow-left me-2 fa"></i>Kembali
+                    </a>
                 </div>
 
                 <form method="post" autocomplete="off">
 
                     <!-- USERNAME -->
-                    <div class="form-floating mb-3">
-                        <input type="text"
-                            class="form-control rounded-3"
-                            id="username"
-                            name="username"
-                            placeholder="Username"
-                            required>
+                    <div class="mb-3 form-floating">
+                        <input type="text" class="rounded-3 form-control" id="username" name="username" placeholder="Username" required>
                         <label for="username">
-                            <i class="fa fa-user me-2"></i>Username
+                            <i class="me-2 fa fa-user"></i>Username
                         </label>
                     </div>
 
                     <!-- PASSWORD -->
-                    <div class="form-floating mb-3 position-relative">
-                        <input type="password"
-                            class="form-control rounded-3"
-                            id="passwd"
-                            name="passwd"
-                            placeholder="Password"
-                            required>
+                    <div class="position-relative form-floating">
+                        <input type="password" class="rounded-3 form-control" id="passwd" name="passwd" placeholder="Password" required>
                         <label for="passwd">
-                            <i class="fa fa-lock me-2"></i>Password
+                            <i class="me-2 fa fa-lock"></i>Password
                         </label>
 
                         <span onclick="togglePassword()"
-                            class="position-absolute top-50 end-0 translate-middle-y me-3"
+                            class="top-50 position-absolute me-3 translate-middle-y end-0"
                             style="cursor:pointer;">
-                            <i class="fa fa-eye text-secondary" id="toggleIcon"></i>
+                            <i class="text-secondary fa fa-eye" id="toggleIcon"></i>
                         </span>
+                    </div>
+                    <div class="mb-3 text-end">
+                        <a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=user/forgot-password"; ?>"
+                            class="text-primary text-decoration-none small">
+                            Lupa Password?
+                        </a>
                     </div>
 
                     <?php if (isset($_SESSION['otp'])): ?>
 
                         <!-- OTP -->
-                        <div class="form-floating mb-4">
+                        <div class="mb-4 form-floating">
                             <input type="text"
-                                class="form-control text-center fw-bold"
+                                class="text-center form-control fw-bold"
                                 id="otp"
                                 name="otp"
                                 placeholder="Kode OTP"
@@ -86,30 +88,31 @@
                         </div>
 
                         <button type="submit" name="btnLogin"
-                            class="btn btn-primary w-100 rounded-3 py-2">
+                            class="py-2 rounded-3 w-100 btn btn-primary">
                             Masuk ke Dashboard
                         </button>
 
                     <?php else: ?>
 
                         <button type="submit" name="btnOTP" value="telegram"
-                            class="btn btn-outline-primary w-100 rounded-3 py-2">
-                            <i class="fab fa-telegram me-2"></i>Kirim OTP via Telegram
+                            class="py-2 rounded-3 btn-primary-outline w-100 btn">
+                            <i class="me-2 fab fa-telegram"></i>Kirim OTP via Telegram
                         </button>
 
                     <?php endif; ?>
 
-                    <div class="text-center mt-3">
-                        <a href="<?php echo $base_url; ?>"
-                            class="text-decoration-none text-muted small">
-                            ← Kembali ke Beranda
+                    <div class="mt-1 text-center">
+                        Belum punya akun?
+                        <a href="#" onclick="pilihRegister(event)"
+                            class="text-primary text-decoration-none small fw-semibold">
+                            Daftar di sini
                         </a>
                     </div>
 
                     <input type="hidden" id="koor" name="koor">
                 </form>
 
-                <div class="text-center mt-4 small text-muted">
+                <div class="mt-4 text-muted text-center small">
                     &copy; <?php echo date('Y'); ?> Nexvorta. All rights reserved.
                 </div>
 
@@ -123,6 +126,32 @@
 <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/js/all.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+    function pilihRegister(e) {
+        e.preventDefault();
+
+        Swal.fire({
+            title: 'Registrasi Sebagai',
+            text: 'Silakan pilih tipe akun yang ingin Anda daftarkan',
+            icon: 'question',
+            showCancelButton: true,
+            showDenyButton: true,
+            confirmButtonText: 'Customer',
+            denyButtonText: 'Seller',
+            cancelButtonText: 'Batal',
+            confirmButtonColor: '#0077b6',
+            denyButtonColor: '#00b4d8',
+            cancelButtonColor: '#6c757d',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Customer
+                window.location.href = "index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=user/register-customer"; ?>";
+            } else if (result.isDenied) {
+                // Seller
+                window.location.href = "index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=user/register-seller"; ?>";
+            }
+        });
+    }
     // Toggle Password Visibility
     function togglePassword() {
         var pwd = document.getElementById("passwd");
