@@ -12,9 +12,6 @@ if ($maintenance) {
     if (isset($_SERVER['REMOTE_ADDR']) && in_array($_SERVER['REMOTE_ADDR'], $ip_boleh)) {
         // boleh akses
     } else {
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
-
         require_once 'maintenance.php';
         return;
     }
@@ -22,30 +19,21 @@ if ($maintenance) {
 
 include_once 'config.php';
 
-// Validasi token tetap digunakan
-if (!isset($_GET['token']) || $_GET['token'] != encrypt(date('Ymd'))) {
+/* ==============================
+   VALIDASI TOKEN
+============================== */
+
+if (@$_GET['token'] == '') {
+    include_once 'dashboard.php';
+} elseif ($_GET['token'] <> encrypt(date('Ymd'))) {
     include_once 'dashboard.php';
 } else {
 
-    // Jika tidak ada parameter hal → default dashboard
-    if (!isset($_GET['hal']) || $_GET['hal'] == '') {
-        include_once 'dashboard.php';
-    } else {
-        $allowed_pages = [
-            'dashboard',
-            'about-us',
-            'products/crafts-umkm',
-            'products/agriculture-plantations',
-            'products/livestockfarm',
-            'user/login',
-            'privacy-policy',
-            'terms'
-        ];
+    $halaman = @$_GET['hal'] . ".php";
 
-        if (isset($_GET['hal']) && in_array($_GET['hal'], $allowed_pages)) {
-            include_once $_GET['hal'] . '.php';
-        } else {
-            include_once '404.php';
-        }
+    if (!empty($_GET['hal']) && file_exists($halaman)) {
+        include_once $halaman;
+    } else {
+        include_once '404.php';
     }
 }

@@ -1,11 +1,7 @@
 <script>
   function toggleChatWindow() {
     const chatWindow = document.getElementById('chat-window');
-    if (chatWindow.style.display === 'none') {
-      chatWindow.style.display = 'flex';
-    } else {
-      chatWindow.style.display = 'none';
-    }
+    chatWindow.classList.toggle('active');
   }
 
   function sendMessage() {
@@ -16,8 +12,12 @@
     addMessageToChat('user', message);
     chatInput.value = '';
 
-    // Loading bubble
-    addMessageToChat('bot', 'Typing...');
+    // Typing animation
+    addMessageToChat('bot', `
+    <div class="typing-indicator">
+      <span></span><span></span><span></span>
+    </div>
+  `);
 
     fetch('function/nexva-ai.php', {
         method: 'POST',
@@ -30,15 +30,16 @@
       })
       .then(res => res.json())
       .then(data => {
-        const messages = document.querySelectorAll('.chat-message.bot');
-        messages[messages.length - 1].remove(); // remove typing
+        const typingMessage = document.querySelector('.chat-message.bot:last-child');
+        if (typingMessage) typingMessage.remove();
         addMessageToChat('bot', data.reply);
       })
       .catch(err => {
-        addMessageToChat('bot', 'Terjadi kesalahan saat menghubungi AI.');
+        const typingMessage = document.querySelector('.chat-message.bot:last-child');
+        if (typingMessage) typingMessage.remove();
+        addMessageToChat('bot', 'Terjadi kesalahan saat menghubungi Nexva.');
       });
   }
-
 
   function addMessageToChat(sender, message) {
     const chatMessages = document.getElementById('chat-messages');
@@ -48,7 +49,7 @@
     chatMessages.appendChild(messageDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
-  // Enter key to send message
+
   document.addEventListener('DOMContentLoaded', () => {
     const chatInput = document.getElementById('chat-input');
     if (chatInput) {

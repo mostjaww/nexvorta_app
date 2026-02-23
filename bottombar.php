@@ -84,9 +84,9 @@
   <button type="button" class="chat-btn" onclick="toggleChatWindow()">
     <i class="bi bi-chat-dots"></i>
   </button>
-  <div id="chat-window" class="chat-window" style="display: none;">
+  <div id="chat-window" class="chat-window">
     <div class="chat-header">
-      <h5>Chat with Nexva (Nexvorta AI Assistant)</h5>
+      <h5 style="color: white;">Chat with Nexva (Nexvorta AI Assistant)</h5>
       <button type="button" class="btn-close" onclick="toggleChatWindow()"></button>
     </div>
     <div class="chat-messages" id="chat-messages"></div>

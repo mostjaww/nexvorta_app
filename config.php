@@ -13,7 +13,7 @@ if (!$link) {
 	die("Koneksi ke conn gagal: " . mysqli_connect_error());
 }
 
-$base_url = 'http://localhost/nexvorta_apps/';
+$base_url = 'https://localhost/Nexvorta/nexvorta_app/';
 
 
 $idx 		= mysqli_real_escape_string($link, '1');
