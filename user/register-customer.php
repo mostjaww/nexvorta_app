@@ -40,10 +40,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 // Kirim OTP ke Telegram
                 $text = "Halo $name 👋\n\n"
-                    . "Kode OTP Aktivasi Nexvorta Anda:\n\n"
+                    . "Terima kasih telah melakukan pendaftaran akun di Nexvorta.\n\n"
+                    . "Untuk melanjutkan proses aktivasi akun, silakan gunakan kode OTP berikut:\n\n"
                     . "🔐 $otp\n\n"
-                    . "Jangan bagikan kode ini ke siapapun.";
-
+                    . "Kode OTP ini hanya berlaku dalam beberapa menit dan bersifat rahasia.\n"
+                    . "Jangan membagikan kode ini kepada pihak manapun.\n\n"
+                    . "Terima kasih atas kepercayaan Anda kepada Nexvorta.\n\n"
+                    . "— Tim Nexvorta";
+                    
                 @file_get_contents("https://api.telegram.org/bot" . $token_bottelegram .
                     "/sendMessage?chat_id=" . $telegram .
                     "&text=" . urlencode($text));
@@ -191,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         <div class="mt-4 text-center">
                             <small>Already have account?</small><br>
-                            <a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=customer/login"; ?>"
+                            <a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=user/login"; ?>"
                                 class="text-decoration-none fw-semibold">
                                 Login Now
                             </a>
