@@ -1,6 +1,6 @@
-<?php include 'header.php'; ?>
+<?php include 'function/header.php'; ?>
 
-  <?php include 'topbar.php'; ?>
+  <?php include 'function/topbar.php'; ?>
   <main class="main">
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
@@ -308,6 +308,6 @@
 
   </main>
   
-  <?php include 'bottombar.php'; ?>
+  <?php include 'function/bottombar.php'; ?>
 
-  <?php include 'footer.php'; ?>
+  <?php include 'function/footer.php'; ?>

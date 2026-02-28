@@ -47,6 +47,26 @@
     </div>
 </footer>
 
+<!-- Floating Chat Button -->
+<div id="chat-button" class="floating-chat-btn">
+    <button type="button" class="chat-btn" onclick="toggleChatWindow()">
+        <i class="bi bi-chat-dots"></i>
+    </button>
+    <div id="chat-window" class="chat-window">
+        <div class="chat-header">
+            <h5 style="color: white;">Chat with Nexva (Nexvorta AI Assistant)</h5>
+            <button type="button" class="btn-close" onclick="toggleChatWindow()"></button>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" class="chat-input" placeholder="Type your message..." />
+            <button type="button" class="btn-send" onclick="sendMessage()">
+                <i class="bi bi-send"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
 <script>
     document.querySelector(".telegram-btn")?.addEventListener("click", function() {
         Swal.fire({
@@ -100,6 +120,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/dashboard/customer.js"></script>
 <script src="assets/js/dashboard/darkmode.js"></script>
+<script src="assets/js/dashboard/nexva_ai.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>

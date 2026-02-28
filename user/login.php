@@ -113,7 +113,7 @@
                 </form>
 
                 <div class="mt-4 text-muted text-center small">
-                    &copy; <?php echo date('Y'); ?> Nexvorta. All rights reserved.
+                    &copy; <?php echo date('Y'); ?> <strong>Nexvorta</strong>. All rights reserved.
                 </div>
 
             </div>

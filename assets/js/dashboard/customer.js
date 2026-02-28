@@ -5,42 +5,42 @@ const products = [
     name: "Wireless Headphone",
     price: 450000,
     category: "electronics",
-    img: "https://source.unsplash.com/400x300/?headphone",
+    img: "https://els.id/wp-content/uploads/2023/11/Olike-H2-1.jpg",
   },
   {
     id: 2,
     name: "Gaming Mouse",
     price: 250000,
     category: "electronics",
-    img: "https://source.unsplash.com/400x300/?mouse",
+    img: "https://img.lazcdn.com/g/p/86291e7fd8195b5b18f224ef4c903953.jpg_720x720q80.jpg",
   },
   {
     id: 3,
     name: "Smart Watch",
     price: 850000,
     category: "electronics",
-    img: "https://source.unsplash.com/400x300/?watch",
+    img: "https://timekingdom.co.id/cdn/shop/files/gama_BL.png?v=1736239736",
   },
   {
     id: 4,
     name: "Mechanical Keyboard",
     price: 750000,
     category: "electronics",
-    img: "https://source.unsplash.com/400x300/?keyboard",
+    img: "https://images.jamtangan.com/preset:sharp/resize:fit:462:492/dpr:1.5/width:462/height:492/resize:fit/plain/https://assets.jamtangan.com/images/product/magegee/6971969720848/1l_800x800.jpg",
   },
   {
     id: 5,
     name: "Bluetooth Speaker",
     price: 300000,
     category: "accessories",
-    img: "https://source.unsplash.com/400x300/?speaker",
+    img: "https://id.jbl.com/dw/image/v2/AAUJ_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw6fe37dc4/JBL_GO_4_3_4_LEFT_BLACK_48178_x1.png?sw=537&sfrm=png",
   },
   {
     id: 6,
     name: "Power Bank",
     price: 200000,
     category: "accessories",
-    img: "https://source.unsplash.com/400x300/?powerbank",
+    img: "https://migadget.id/wp-content/uploads/2024/09/Xiaomi-Power-Bank-dengan-Kabel-10000mAh-web.jpg",
   },
 ];
 
@@ -69,7 +69,7 @@ function renderProducts(list) {
           <div class="product-price mb-2">
             Rp ${p.price.toLocaleString()}
           </div>
-          <button class="btn btn-primary-custom btn-sm w-100 add-btn" data-id="${p.id}">
+          <button class="btn btn-primary-custom btn-sm w-100 add-btn" onclick="addToCart(${p.id})">
             Add to Cart
           </button>
         </div>
