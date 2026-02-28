@@ -9,5 +9,7 @@ Nexvorta adalah platform Export & Import yang digunakan untuk mempermudah buyer 
 
 * **Autentikasi Aman:** Menggunakan Firebase Authentication untuk login pengguna.
 * **Data Real-time:** Pengelolaan data dengan Firestore.
+* **Memiliki Teknologi AI:** Menggunakan teknologi AI berbasis server dengan llama3.
 * **Fungsi *Backend* Kustom:** Menggunakan Firebase Functions untuk logika bisnis.
 * **Hosting Cepat:** *Frontend* di-host menggunakan Firebase Hosting.
+
