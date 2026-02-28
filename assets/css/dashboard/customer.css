@@ -1,0 +1,356 @@
+/* ================= ROOT ================= */
+:root {
+    --primary: #023e8a;
+    --secondary: #0077b6;
+
+    --bg-main: #f4f7fb;
+    --card-bg: #ffffff;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --shadow-soft: rgba(0, 0, 0, 0.06);
+}
+
+body.dark-mode {
+    --bg-main: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --shadow-soft: rgba(0, 0, 0, 0.4);
+}
+
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+}
+
+/* ================= DARK MODE AUTO ================= */
+
+body.dark-mode .navbar-custom {
+    background: linear-gradient(135deg, #0a192f, #112240);
+}
+
+body.dark-mode .logout-btn:hover {
+    background: var(--secondary);
+    color: #fff;
+}
+
+body.dark-mode .theme-toggle-btn,
+body.dark-mode .cart-btn,
+body.dark-mode .nav-icon-btn {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .product-price {
+    color: #38bdf8;
+}
+
+body.dark-mode .btn-primary-custom {
+    background: #1d4ed8;
+}
+
+body.dark-mode .btn-primary-custom:hover {
+    background: #2563eb;
+}
+
+body.dark-mode .footer {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+/* BUTTON */
+.btn {
+    --bs-btn-color: white;
+}
+
+.btn-dark {
+    background: var(--text-color);
+    border: none;
+    border-radius: 30px;
+}
+
+/* TEXT STYLE */
+.text-primary {
+    color: var(--primary) !important;
+}
+
+
+/* ================= BUTTON SYSTEM ================= */
+
+.theme-toggle-btn,
+.cart-btn,
+.nav-icon-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #fff;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.theme-toggle-btn:hover,
+.cart-btn:hover,
+.nav-icon-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.logout-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: #fff;
+    color: var(--primary);
+}
+
+/* HEADER */
+.top-header {
+    background: var(--primary);
+    color: white;
+    padding: 10px 0;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+/* ================= SEARCH ================= */
+
+.search-input {
+    border-radius: 30px;
+    border: none;
+    padding-left: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+body.dark-mode .search-input {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ================= NAVBAR PREMIUM ================= */
+
+.navbar-custom {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    padding: 14px 0;
+    transition: 0.3s;
+}
+
+.navbar-brand {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff !important;
+}
+
+.navbar-custom .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+    color: #ffffff !important;
+}
+
+/* PRODUCT */
+.product-card {
+    background: var(--card-bg);
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px var(--shadow-soft);
+    transition: 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px var(--shadow-soft);
+}
+
+.product-title {
+    font-weight: 600;
+    color: var(--text-main);
+    min-height: 40px;
+}
+
+.product-card img {
+    height: 180px;
+    object-fit: cover;
+}
+
+.product-price {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.btn-primary-custom {
+    background: var(--primary);
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.btn-primary-custom:hover {
+    background: var(--secondary);
+}
+
+/* MOBILE */
+@media(max-width:768px) {
+    .product-card img {
+        height: 140px;
+    }
+
+    .search-box {
+        display: none;
+    }
+}
+
+.cart-badge {
+    background: red;
+    font-size: 11px;
+    padding: 3px 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    color: white;
+}
+
+/* ================= FOOTER PREMIUM ================= */
+
+.footer {
+    background: linear-gradient(120deg, var(--primary), var(--secondary));
+    color: #fff;
+    padding: 50px 0 20px;
+    transition: 0.3s;
+}
+
+.footer-logo {
+    font-weight: 700;
+    font-family: 'Jost', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-text {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+}
+
+.footer h6 {
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    padding-left: 4px;
+}
+
+/* Social Icons */
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+    font-size: 20px;
+}
+
+.social-icons i {
+    cursor: pointer;
+    transition: 0.3s;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.social-icons i:hover {
+    transform: translateY(-3px);
+    color: #fff;
+}
+
+/* Bottom Line */
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 30px;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.filter-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.product-title {
+    font-weight: 600;
+    min-height: 40px;
+}
+
+.product-card {
+    transition: 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+}
+
+input,
+select {
+    border-radius: 10px !important;
+}
+
+.navbar-custom {
+    background: linear-gradient(135deg, #023e8a, #0077b6);
+    padding: 12px 0;
+}
+
+.navbar-custom .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+    color: #ffffff !important;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
