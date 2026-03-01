@@ -37,25 +37,25 @@
                 <div class="row g-4" id="productContainer"></div>
             </div>
 
-            <!-- CART OFFCANVAS -->
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="cartCanvas">
-                <div class="offcanvas-header">
-                    <h5>Your Cart</h5>
-                    <button class="btn-close" data-bs-dismiss="offcanvas"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <div id="cartItems"></div>
-                    <hr>
-                    <h6>Total: Rp <span id="cartTotal">0</span></h6>
-                    <button id="checkoutBtn" class="btn btn-primary-custom w-100 mt-3">
-                        Checkout
-                    </button>
-                </div>
-            </div>
-
         </div>
     </div>
 
 </main>
+
+<!-- ✅ OFFCANVAS PINDAH KE LUAR ROW -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartCanvas">
+    <div class="offcanvas-header">
+        <h5>Your Cart</h5>
+        <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div id="cartItems"></div>
+        <hr>
+        <h6>Total: Rp <span id="cartTotal">0</span></h6>
+        <button id="checkoutBtn" class="btn btn-primary-custom w-100 mt-3">
+            Checkout
+        </button>
+    </div>
+</div>
 
 <?php include 'function/footer.php'; ?>

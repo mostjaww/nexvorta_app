@@ -68,3 +68,7 @@
             </div>
         </div>
     </nav>
+
+    <script>
+        const secureToken = "<?= encrypt(date('Ymd')); ?>";
+    </script>

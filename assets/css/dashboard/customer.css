@@ -52,8 +52,25 @@ body.dark-mode .btn-primary-custom:hover {
     background: #2563eb;
 }
 
+body.dark-mode .btn-outline-primary {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode .btn-outline-primary:hover {
+    background: #1d4ed8;
+    color: #fff;
+}
+
 body.dark-mode .footer {
     background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+body.dark-mode .skeleton-img {
+    background: linear-gradient(90deg,
+            #1e293b 25%,
+            #334155 50%,
+            #1e293b 75%);
 }
 
 /* BUTTON */
@@ -207,6 +224,17 @@ body.dark-mode .search-input {
 
 .btn-primary-custom:hover {
     background: var(--secondary);
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary);
+    color: #fff;
 }
 
 /* MOBILE */
@@ -576,4 +604,184 @@ select {
     40% {
         transform: scale(1);
     }
+}
+
+/* IMAGE WRAPPER */
+.image-wrapper {
+    height: 250px;
+    background: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: 0.3s;
+}
+
+/* HOVER ZOOM */
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+/* DISCOUNT BADGE */
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: crimson;
+    color: #fff;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    z-index: 2;
+}
+
+/* QUICK CART */
+.quick-cart-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s;
+}
+
+.product-card:hover .quick-cart-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.quick-cart-btn:hover {
+    background: var(--secondary);
+}
+
+/* SKELETON */
+.skeleton-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            #e0e0e0 25%,
+            #f0f0f0 50%,
+            #e0e0e0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* ================= DETAIL PAGE ================= */
+
+.detail-image-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 30px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+    box-shadow: 0 8px 25px var(--shadow-soft);
+}
+
+.detail-image {
+    max-width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+    transition: 0.3s;
+}
+
+.detail-title {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.detail-price {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+body.dark-mode .detail-price {
+    color: #38bdf8;
+}
+
+.detail-description {
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+/* Skeleton */
+.detail-skeleton {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.2s infinite;
+    border-radius: 16px;
+}
+
+body.dark-mode .detail-skeleton {
+    background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+}
+
+/* Quantity */
+.quantity-control-detail {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--shadow-soft);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.quantity-control-detail button {
+    background: transparent;
+    border: none;
+    padding: 6px 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.quantity-control-detail span {
+    padding: 0 15px;
+    font-weight: 600;
+}
+
+.subtotal {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* Discount Badge */
+.discount-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: crimson;
+    color: #fff;
+    padding: 6px 14px;
+    font-size: 13px;
+    border-radius: 20px;
+    font-weight: 600;
 }
