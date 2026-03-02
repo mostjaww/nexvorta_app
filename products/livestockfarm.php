@@ -1,6 +1,6 @@
-<?php include 'header.php'; ?>
+<?php include 'function/header.php'; ?>
 
-<?php include 'topbar.php'; ?>
+<?php include 'function/topbar.php'; ?>
 
 <main class="main">
   <section id="hero" class="hero section">
@@ -28,7 +28,7 @@
       </div>
       <div class="row gy-4">
         <div class="col-lg-6">
-          <img src="assets/img/livestockfarm-about.jpg" alt="About Livestock" class="img-fluid">
+          <img src="assets/img/illustration/livestockfarm.svg" alt="About Livestock" class="img-fluid">
         </div>
         <div class="col-lg-6 content">
           <h3>Quality Assurance</h3>
@@ -46,29 +46,35 @@
 
   <section id="products" class="products section">
     <div class="container">
-      <div class="section-title">
+      <div class="section-title" data-aos="fade-up" data-aos-delay="100">
         <h2>Featured Products</h2>
       </div>
       <div class="row gy-4">
-        <div class="col-lg-4 col-md-6">
-          <div class="product-card">
-            <img src="assets/img/product-4.jpg" alt="Product 1" class="img-fluid">
-            <h4>Beef Products</h4>
-            <p>Premium quality beef from local farms</p>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="h-100 card">
+            <img src="https://simpsonsmeats.com/cdn/shop/files/HalfCow.jpg?v=1696341332" alt="Product 1" class="img-fluid">
+            <div class="card-body">
+              <h5 class="card-title">Beef Products</h5>
+              <p class="card-text">Premium quality beef from local farms</p>
+            </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="product-card">
-            <img src="assets/img/product-5.jpg" alt="Product 2" class="img-fluid">
-            <h4>Poultry Products</h4>
-            <p>Fresh chicken and eggs</p>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="h-100 card">
+            <img src="https://cdn.businessday.ng/2016/04/poultry-products.png" alt="Product 2" class="img-fluid">
+            <div class="card-body">
+              <h5 class="card-title">Poultry Products</h5>
+              <p class="card-text">Fresh chicken and eggs</p>
+            </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="product-card">
-            <img src="assets/img/product-6.jpg" alt="Product 3" class="img-fluid">
-            <h4>Dairy Products</h4>
-            <p>High quality milk and dairy items</p>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="h-100 card">
+            <img src="https://kabilaifarm.com/wp-content/uploads/2023/06/Understanding-the-Different-Types-of-Dairy-Products.jpg" alt="Product 3" class="img-fluid">
+            <div class="card-body">
+              <h5 class="card-title">Dairy Products</h5>
+              <p class="card-text">High quality milk and dairy items</p>
+            </div>
           </div>
         </div>
       </div>
@@ -76,30 +82,6 @@
   </section>
 </main>
 
-<?php include 'bottombar.php'; ?>
+<?php include 'function/bottombar.php'; ?>
 
-<!-- Floating Chat Button -->
-<div id="chat-button" class="floating-chat-btn">
-  <button type="button" class="chat-btn" onclick="toggleChatWindow()">
-    <i class="bi bi-chat-dots"></i>
-  </button>
-  <div id="chat-window" class="chat-window" style="display: none;">
-    <div class="chat-header">
-      <h5>Chat with Nexva (Nexvorta AI Assistant)</h5>
-      <button type="button" class="btn-close" onclick="toggleChatWindow()"></button>
-    </div>
-    <div class="chat-messages" id="chat-messages"></div>
-    <div class="chat-input-area">
-      <input type="text" id="chat-input" class="chat-input" placeholder="Type your message..." />
-      <button type="button" class="btn-send" onclick="sendMessage()">
-        <i class="bi bi-send"></i>
-      </button>
-    </div>
-  </div>
-</div>
-
-<a href="#" id="scroll-top" class="d-flex align-items-center justify-content-center scroll-top"><i
-    class="bi bi-arrow-up-short"></i>
-</a>
-
-<?php include 'footer.php'; ?>
+<?php include 'function/footer.php'; ?>

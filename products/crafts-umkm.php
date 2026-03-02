@@ -1,6 +1,6 @@
-<?php include 'header.php'; ?>
+<?php include 'function/header.php'; ?>
 
-<?php include 'topbar.php'; ?>
+<?php include 'function/topbar.php'; ?>
 <main class="main">
   <section id="hero" class="hero section">
     <div class="container">
@@ -11,7 +11,7 @@
             Discover authentic handcrafted products from local artisans and small businesses across Indonesia.
           </p>
           <div class="d-flex gap-2" data-aos="fade-up" data-aos-delay="200">
-            <a href="crafts%26umkm.html#products" class="btn-get-started">Explore Products</a>
+            <a href="#products" class="btn-get-started">Explore Products</a>
             <a href="#" class="d-flex align-items-center btn-watch-video"><span>Coming Soon</span></a>
           </div>
         </div>
@@ -29,7 +29,7 @@
       </div>
       <div class="row gy-4">
         <div class="col-lg-6">
-          <img src="../assets/img/livestockfarm-about.html" alt="About Livestock" class="img-fluid">
+          <img src="https://img.freepik.com/free-vector/arab-bazaar-isolated-white-background_23-2148661696.jpg?semt=ais_rp_progressive&w=740&q=80" alt="About Livestock" class="img-fluid">
         </div>
         <div class="col-lg-6 content">
           <h3>Quality Assurance</h3>
@@ -45,31 +45,37 @@
     </div>
   </section>
 
-  <section id="products" class="featured-products section">
+  <section id="products" class="products section">
     <div class="container">
-      <div class="section-title" data-aos="fade-up">
+      <div class="section-title" data-aos="fade-up" data-aos-delay="100">
         <h2>Featured Products</h2>
       </div>
       <div class="row g-4">
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="product-card">
-            <img src="assets/img/product-1.html" alt="Product" class="img-fluid" />
-            <h5>Traditional Batik</h5>
-            <p>Authentic handmade batik fabrics with traditional patterns</p>
+          <div class="h-100 card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Batik_Trusmi_Cirebon_%2823%29.jpg" alt="Product" class="img-fluid" />
+            <div class="card-body">
+              <h5 class="card-title">Traditional Batik</h5>
+              <p class="card-text">Authentic handmade batik fabrics with traditional patterns</p>
+            </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="product-card">
-            <img src="assets/img/product-2.html" alt="Product" class="img-fluid" />
-            <h5>Handicrafts</h5>
-            <p>Unique handcrafted items from local artisans</p>
+          <div class="h-100 card">
+            <img src="https://www.indonesia.travel/link/1ac2b9354bda4919adc96caab06f4513.aspx" alt="Product" class="img-fluid" />
+            <div class="card-body">
+              <h5 class="card-title">Handicrafts</h5>
+              <p class="card-text">Unique handcrafted items from local artisans</p>
+            </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="product-card">
-            <img src="assets/img/product-3.html" alt="Product" class="img-fluid" />
-            <h5>Local Textiles</h5>
-            <p>Premium quality textiles produced by local UMKM businesses</p>
+          <div class="h-100 card">
+            <img src="https://thumbs.dreamstime.com/b/stunning-lombok-textiles-vibrant-kain-tenun-display-traditional-indonesian-market-showcasing-local-immerse-yourself-379141218.jpg" alt="Product" class="img-fluid" />
+            <div class="card-body">
+              <h5 class="card-title">Local Textiles</h5>
+              <p class="card-text">Premium quality textiles produced by local UMKM businesses</p>
+            </div>
           </div>
         </div>
       </div>
@@ -77,30 +83,6 @@
   </section>
 </main>
 
-<?php include 'bottombar.php'; ?>
+<?php include 'function/bottombar.php'; ?>
 
-<!-- Floating Chat Button -->
-<div id="chat-button" class="floating-chat-btn">
-  <button type="button" class="chat-btn" onclick="toggleChatWindow()">
-    <i class="bi bi-chat-dots"></i>
-  </button>
-  <div id="chat-window" class="chat-window" style="display: none;">
-    <div class="chat-header">
-      <h5>Chat with Nexva (Nexvorta AI Assistant)</h5>
-      <button type="button" class="btn-close" onclick="toggleChatWindow()"></button>
-    </div>
-    <div class="chat-messages" id="chat-messages"></div>
-    <div class="chat-input-area">
-      <input type="text" id="chat-input" class="chat-input" placeholder="Type your message..." />
-      <button type="button" class="btn-send" onclick="sendMessage()">
-        <i class="bi bi-send"></i>
-      </button>
-    </div>
-  </div>
-</div>
-
-<a href="#" id="scroll-top" class="d-flex align-items-center justify-content-center scroll-top"><i
-    class="bi bi-arrow-up-short"></i>
-</a>
-
-<?php include 'footer.php'; ?>
+<?php include 'function/footer.php'; ?>

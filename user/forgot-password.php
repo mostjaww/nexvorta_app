@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="card-reset text-center">
 
         <div class="mb-3 text-start">
-            <a href="<?php echo $base_url; ?>/index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=user/login"; ?>"
+            <a href="<?php echo $base_url; ?>index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=user/login"; ?>"
                 class="btn-back">
                 <i class="fa-arrow-left me-2 fa"></i>Back to Home
             </a>

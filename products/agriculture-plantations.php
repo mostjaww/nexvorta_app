@@ -1,6 +1,6 @@
-<?php include 'header.php'; ?>
+<?php include 'function/header.php'; ?>
 
-<?php include 'topbar.php'; ?>
+<?php include 'function/topbar.php'; ?>
 <main class="main">
   <section id="hero" class="hero section">
     <div class="container">
@@ -9,7 +9,7 @@
           <h1 class="mb-4 display-5">Agriculture & Plantations Products</h1>
           <p class="mb-4 lead">Discover premium quality agricultural and plantation products sourced directly from sustainable farms across Indonesia.</p>
           <div class="d-flex gap-2" data-aos="fade-up" data-aos-delay="200">
-            <a href="agriculture%26plantations.html#products" class="btn-get-started">Explore Products</a>
+            <a href="#products" class="btn-get-started">Explore Products</a>
             <a href="#" class="d-flex align-items-center btn-watch-video"><span>Coming Soon</span></a>
           </div>
         </div>
@@ -51,7 +51,7 @@
       <div class="row g-4">
         <div class="col-lg-4 col-md-6">
           <div class="h-100 card">
-            <img src="assets/img/product-1.html" class="card-img-top" alt="Product">
+            <img src="https://naturelandorganics.com/cdn/shop/articles/Organic_Brown_Rice_1200x1200.jpg?v=1662727606" class="card-img-top" alt="Product">
             <div class="card-body">
               <h5 class="card-title">Organic Rice</h5>
               <p class="card-text">Premium organic rice from local farms</p>
@@ -60,7 +60,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="h-100 card">
-            <img src="assets/img/product-2.html" class="card-img-top" alt="Product">
+            <img src="https://www.poltekcwe.ac.id/wp-content/uploads/2025/08/31.-Mengenal-Apa-Itu-Crude-Palm-Oil-CPO-1.jpg" class="card-img-top" alt="Product">
             <div class="card-body">
               <h5 class="card-title">Palm Oil</h5>
               <p class="card-text">Sustainable palm oil production</p>
@@ -69,7 +69,7 @@
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="h-100 card">
-            <img src="assets/img/product-3.html" class="card-img-top" alt="Product">
+            <img src="https://static.wixstatic.com/media/35d216_98d39fbb3b834f9cb2169f2fa88f103c~mv2.jpg/v1/fill/w_568,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/35d216_98d39fbb3b834f9cb2169f2fa88f103c~mv2.jpg" class="card-img-top" alt="Product">
             <div class="card-body">
               <h5 class="card-title">Cocoa Beans</h5>
               <p class="card-text">High-grade cocoa from Indonesia's finest plantations</p>
@@ -81,30 +81,6 @@
   </section>
 </main>
 
-<?php include 'bottombar.php'; ?>
+<?php include 'function/bottombar.php'; ?>
 
-<!-- Floating Chat Button -->
-<div id="chat-button" class="floating-chat-btn">
-  <button type="button" class="chat-btn" onclick="toggleChatWindow()">
-    <i class="bi bi-chat-dots"></i>
-  </button>
-  <div id="chat-window" class="chat-window" style="display: none;">
-    <div class="chat-header">
-      <h5>Chat with Nexva (Nexvorta AI Assistant)</h5>
-      <button type="button" class="btn-close" onclick="toggleChatWindow()"></button>
-    </div>
-    <div class="chat-messages" id="chat-messages"></div>
-    <div class="chat-input-area">
-      <input type="text" id="chat-input" class="chat-input" placeholder="Type your message..." />
-      <button type="button" class="btn-send" onclick="sendMessage()">
-        <i class="bi bi-send"></i>
-      </button>
-    </div>
-  </div>
-</div>
-
-<a href="#" id="scroll-top" class="d-flex align-items-center justify-content-center scroll-top"><i
-    class="bi bi-arrow-up-short"></i>
-</a>
-
-<?php include 'footer.php'; ?>
+<?php include 'function/footer.php'; ?>

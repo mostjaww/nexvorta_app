@@ -32,8 +32,8 @@
               <li><a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=products/livestockfarm"; ?>">Livestock Farm Products</a></li>
             </ul>
           </li>
-          <li><a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=#team"; ?>" style="color: #023e8a">Our Team</a></li>
-          <li><a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=#contact"; ?>" style="color: #023e8a">Contact Us</a></li>
+          <li><a href="<?php echo $base_url; ?>#team" style="color: #023e8a">Our Team</a></li>
+          <li><a href="<?php echo $base_url; ?>#contact" style="color: #023e8a">Contact Us</a></li>
           <li class="dropdown">
             <a href="#" style="color: #023e8a"><span>Download</span>
               <i class="bi bi-chevron-down toggle-dropdown"></i></a>
