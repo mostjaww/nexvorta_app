@@ -20,7 +20,7 @@
               <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=about-us"; ?>">About Us</a></li>
-              <li><a href="#">Certification</a></li>
+              <li><a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=certification"; ?>">Certification</a></li>
             </ul>
           </li>
           <li class="dropdown">
