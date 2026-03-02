@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = mysqli_fetch_assoc($q2);
             $role = "seller";
         } else {
-            $error_msg = "Username atau Email tidak ditemukan.";
+            $error_msg = "Username or Email not found.";
         }
     }
 
@@ -68,13 +68,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             . "&reset_token=" . $token;
 
         // Kirim ke Telegram
-        $text = "Reset Password Nexvorta\n\nKlik link berikut (berlaku 5 menit):\n$reset_link";
+        $text = "Reset Password Nexvorta\n\nPlease click the link below (valid for 5 minutes):\n$reset_link";
 
         @file_get_contents("https://api.telegram.org/bot" . $token_bottelegram .
             "/sendMessage?chat_id=" . $data['telegram_id'] .
             "&text=" . urlencode($text));
 
-        $success_msg = "Link reset password telah dikirim ke Telegram Anda.";
+        $success_msg = "Reset password link has been sent to your Telegram.";
     }
 }
 ?>
@@ -87,8 +87,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forgot Password - Nexvorta</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/fontawesome.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/js/all.min.js"></script>
     <link rel="stylesheet" href="assets/css/forgot-password.css">
+    <link href="assets/css/login.css" rel="stylesheet">
     <link rel="shortcut icon" href="<?php echo $title_icon; ?>">
 </head>
 
@@ -96,14 +99,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <div class="card-reset text-center">
 
+        <div class="mb-3 text-start">
+            <a href="<?php echo $base_url; ?>/index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=user/login"; ?>"
+                class="btn-back">
+                <i class="fa-arrow-left me-2 fa"></i>Back to Home
+            </a>
+        </div>
+
         <h3 class="fw-bold mb-2">Forgot Password</h3>
-        <p class="text-muted mb-4">Masukkan Username atau Email Anda</p>
+        <p class="text-muted mb-4">Enter your Username or Email to receive a reset link</p>
 
         <?php if (!empty($error_msg)) : ?>
             <script>
                 Swal.fire({
                     icon: 'error',
-                    title: 'Gagal',
+                    title: 'Failed',
                     text: '<?= $error_msg ?>',
                     confirmButtonColor: '#d33'
                 });
@@ -114,8 +124,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <script>
                 Swal.fire({
                     icon: 'success',
-                    title: 'Berhasil',
-                    text: 'Link telah terkirim ke Telegram Anda.',
+                    title: 'Success',
+                    text: 'Reset link has been sent to your Telegram.',
                     confirmButtonColor: '#0d6efd'
                 }).then(() => {
                     window.location = "index.php?token=<?= encrypt(date('Ymd')) ?>&hal=user/forgot-password";
@@ -131,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 required>
 
             <button type="submit" class="btn btn-primary w-100 btn-reset">
-                Kirim Link Reset
+                Send Reset Link
             </button>
         </form>
 

@@ -25,7 +25,7 @@
 
                 <h2 class="fw-bold">NEXVORTA</h2>
                 <p class="opacity-75 text-center">
-                    Export & Import Solutions Terpercaya untuk Pertumbuhan Bisnis Anda
+                    Export & Import Soultions for Your Business Growth. Join us to streamline your global trade operations with ease and efficiency.
                 </p>
             </div>
 
@@ -40,7 +40,7 @@
                 <div class="mb-3 text-start">
                     <a href="<?php echo $base_url; ?>"
                         class="btn-back">
-                        <i class="fa-arrow-left me-2 fa"></i>Kembali
+                        <i class="fa-arrow-left me-2 fa"></i>Back to Home
                     </a>
                 </div>
 
@@ -70,7 +70,7 @@
                     <div class="mb-3 text-end">
                         <a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=user/forgot-password"; ?>"
                             class="text-primary text-decoration-none small">
-                            Lupa Password?
+                            Forgot Password?
                         </a>
                     </div>
 
@@ -84,28 +84,28 @@
                                 name="otp"
                                 placeholder="Kode OTP"
                                 style="letter-spacing:5px; font-size:1.2rem;">
-                            <label for="otp">Kode OTP</label>
+                            <label for="otp">Enter OTP</label>
                         </div>
 
                         <button type="submit" name="btnLogin"
                             class="py-2 rounded-3 w-100 btn btn-primary">
-                            Masuk ke Dashboard
+                            Login to Dashboard
                         </button>
 
                     <?php else: ?>
 
                         <button type="submit" name="btnOTP" value="telegram"
                             class="py-2 rounded-3 btn-primary-outline w-100 btn">
-                            <i class="me-2 fab fa-telegram"></i>Kirim OTP via Telegram
+                            <i class="me-2 fab fa-telegram"></i>Send OTP via Telegram
                         </button>
 
                     <?php endif; ?>
 
                     <div class="mt-1 text-center">
-                        Belum punya akun?
+                        Doesn't have an account yet?
                         <a href="#" onclick="pilihRegister(event)"
                             class="text-primary text-decoration-none small fw-semibold">
-                            Daftar di sini
+                            Register here
                         </a>
                     </div>
 
@@ -130,14 +130,14 @@
         e.preventDefault();
 
         Swal.fire({
-            title: 'Registrasi Sebagai',
-            text: 'Silakan pilih tipe akun yang ingin Anda daftarkan',
+            title: 'Sign Up as',
+            text: 'Choose your account type to sign up',
             icon: 'question',
             showCancelButton: true,
             showDenyButton: true,
             confirmButtonText: 'Customer',
             denyButtonText: 'Seller',
-            cancelButtonText: 'Batal',
+            cancelButtonText: 'Cancel',
             confirmButtonColor: '#0077b6',
             denyButtonColor: '#00b4d8',
             cancelButtonColor: '#6c757d',
@@ -180,7 +180,8 @@
     <?php if (isset($error_msg)): ?>
         Swal.fire({
             icon: 'error',
-            title: 'Gagal',
+            title: 'Login Failed',
+            text: 'Please check your credentials',
             text: '<?php echo $error_msg; ?>',
             confirmButtonColor: '#d33'
         });
@@ -189,7 +190,8 @@
     <?php if (isset($success_msg)): ?>
         Swal.fire({
             icon: 'success',
-            title: 'Berhasil',
+            title: 'Login Success',
+            text: 'Redirecting to Dashboard!',
             text: '<?php echo $success_msg; ?>',
             confirmButtonColor: '#25D366'
         });

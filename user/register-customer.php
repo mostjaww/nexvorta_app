@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <h1 class="fw-bold display-4">Nexvorta</h1>
                     <p class="mb-4 lead">Global Export & Import Platform</p>
                     <p class="opacity-75">
-                        Daftar sekarang dan mulai perjalanan bisnis internasional Anda bersama Nexvorta.
+                        Register now and start your international business journey with Nexvorta.
                     </p>
                 </div>
             </div>
@@ -160,22 +160,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             <div id="ruleLength" class="rule-item">
                                 <i class="me-2 fa fa-circle"></i>
-                                Minimal 6 karakter
+                                Minimum 6 characters
                             </div>
 
                             <div id="ruleUpper" class="rule-item">
                                 <i class="me-2 fa fa-circle"></i>
-                                Mengandung huruf besar (A-Z)
+                                Contains uppercase letter (A-Z)
                             </div>
 
                             <div id="ruleNumber" class="rule-item">
                                 <i class="me-2 fa fa-circle"></i>
-                                Mengandung angka (0-9)
+                                Contains number (0-9)
                             </div>
 
                             <div id="ruleSymbol" class="rule-item">
                                 <i class="me-2 fa fa-circle"></i>
-                                Mengandung simbol (!@#$)
+                                Contains symbol (!@#$)
                             </div>
 
                         </div>
