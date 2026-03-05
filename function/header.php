@@ -1,5 +1,5 @@
-<?php 
-include_once 'config.php'; 
+<?php
+include_once 'config.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ include_once 'config.php';
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Nexvorta - Export & Import Solutions</title>
   <!-- base untuk memastikan path relatif bekerja di Firebase Hosting -->
-  <base  />
+  <base />
 
   <link href="assets/img/logo_2.png" rel="icon" />
   <link href="assets/img/logo_2.png" rel="apple-touch-icon" />
@@ -36,7 +36,6 @@ include_once 'config.php';
   <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-  <link href="assets/css/main.css" rel="stylesheet" />
 </head>
 
 <script>
@@ -44,7 +43,9 @@ include_once 'config.php';
   window.addEventListener('load', function() {
     // Check if page returned 404 status
     if (document.readyState === 'complete') {
-      fetch(window.location.href, { method: 'HEAD' })
+      fetch(window.location.href, {
+          method: 'HEAD'
+        })
         .then(response => {
           if (response.status === 404) {
             window.location.href = '404.html';

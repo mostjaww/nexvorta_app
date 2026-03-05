@@ -117,11 +117,30 @@
     });
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/dashboard/customer.js"></script>
 <script src="assets/js/dashboard/darkmode.js"></script>
 <script src="assets/js/dashboard/nexva_ai.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="assets/js/offcanvas-send-invoice.js"></script>
+<script src="assets/js/app-invoice-add.js"></script>
+<script src="assets/vendor/js/helpers.js"></script>
+<script src="assets/vendor/js/template-customizer.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/vendor/libs/jquery/jquery.js"></script>
+<script src="assets/vendor/libs/popper/popper.js"></script>
+<script src="assets/vendor/js/bootstrap.js"></script>
+<script src="assets/vendor/libs/%40algolia/autocomplete-js.js"></script>
+<script src="assets/vendor/libs/pickr/pickr.js"></script>
+<script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="assets/vendor/libs/hammer/hammer.js"></script>
+<script src="assets/vendor/libs/i18n/i18n.js"></script>
+<script src="assets/vendor/js/menu.js"></script>
+<script src="assets/vendor/libs/flatpickr/flatpickr.js"></script>
+<script src="assets/vendor/libs/cleave-zen/cleave-zen.js"></script>
+<script src="assets/vendor/libs/jquery-repeater/jquery-repeater.js"></script>
 
 </body>
 

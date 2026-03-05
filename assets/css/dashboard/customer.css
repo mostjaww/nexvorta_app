@@ -55,10 +55,22 @@ body.dark-mode .btn-primary-custom:hover {
 body.dark-mode .btn-outline-primary {
     color: #fff;
     border-color: rgba(255, 255, 255, 0.5);
+    background-color: transparent;
 }
 
 body.dark-mode .btn-outline-primary:hover {
     background: #1d4ed8;
+    color: #fff;
+}
+
+body.dark-mode .btn-outline-secondary {
+    color: grey;
+    border-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode .btn-outline-secondary:hover {
+    background: var(--secondary);
     color: #fff;
 }
 
@@ -71,6 +83,87 @@ body.dark-mode .skeleton-img {
             #1e293b 25%,
             #334155 50%,
             #1e293b 75%);
+}
+
+/* Dark Mode Overrides */
+body.dark-mode .invoice-preview-card {
+    background: #1a202c;
+    border-color: #2d3748;
+}
+
+body.dark-mode .bg-light-subtle {
+    background: #2d3748 !important;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background: #2d3748;
+    border-color: #4a5568;
+    color: white;
+}
+
+/* ================= DARK MODE EXTENSION ================= */
+
+body.dark-mode {
+    background-color: #0f172a;
+    color: #e2e8f0;
+}
+
+/* Card & Container */
+body.dark-mode .card,
+body.dark-mode .modal-content,
+body.dark-mode .dropdown-menu {
+    background-color: #112240;
+    border-color: #1e293b;
+    color: #e2e8f0;
+}
+
+/* Typography */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode .text-dark {
+    color: #f8fafc !important;
+}
+
+body.dark-mode .text-muted {
+    color: #94a3b8 !important;
+}
+
+/* Input & Forms */
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #f8fafc;
+}
+
+body.dark-mode .form-control:focus {
+    background-color: #1e293b;
+    border-color: #38bdf8;
+    color: #fff;
+}
+
+/* Tables */
+body.dark-mode .table {
+    color: #e2e8f0;
+    border-color: #334155;
+}
+
+body.dark-mode .table thead {
+    background-color: #1e293b;
+}
+
+/* Links */
+body.dark-mode a:not(.btn) {
+    color: #38bdf8;
+}
+
+body.dark-mode a:not(.btn):hover {
+    color: #7dd3fc;
 }
 
 /* BUTTON */
@@ -228,12 +321,21 @@ body.dark-mode .search-input {
 
 .btn-outline-primary {
     color: var(--primary);
-    border-radius: 30px;
     transition: 0.3s;
 }
 
 .btn-outline-primary:hover {
     background: var(--primary);
+    color: #fff;
+}
+
+.btn-outline-secondary {
+    color: var(--secondary);
+    transition: 0.3s;
+}
+
+.btn-outline-secondary:hover {
+    background: var(--secondary);
     color: #fff;
 }
 
@@ -784,4 +886,108 @@ body.dark-mode .detail-skeleton {
     font-size: 13px;
     border-radius: 20px;
     font-weight: 600;
+}
+
+/* ================= INVOICE STYLE ================= */
+
+:root {
+    --primary-color: #023e8a;
+    --secondary-gradient: linear-gradient(135deg, #0077b6 0%, #023e8a 100%);
+    --card-bg: #ffffff;
+    --border-color: #edf2f7;
+}
+
+/* Card Improvements */
+.invoice-preview-card {
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+/* Header with Gradient */
+.invoice-preview-header {
+    background: var(--secondary-gradient);
+    padding: 2.5rem !important;
+    position: relative;
+    border: none;
+}
+
+.invoice-preview-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/cubes.png');
+    opacity: 0.1;
+}
+
+/* Input Styles */
+.form-control,
+.form-select {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #e2e8f0;
+    font-size: 0.9rem;
+}
+
+.form-control:focus {
+    border-color: #0077b6;
+    box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.1);
+}
+
+.bg-white-transparent {
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Item Repeater Box */
+.repeater-wrapper {
+    background-color: #f8fafc;
+    border: 1px dashed #cbd5e1 !important;
+    transition: all 0.3s ease;
+}
+
+.repeater-wrapper:hover {
+    background-color: #f1f5f9;
+    border-style: solid !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--primary-color);
+    padding: 0.6rem 1.5rem;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+.shadow-primary {
+    box-shadow: 0 4px 14px 0 rgba(2, 62, 138, 0.39);
+}
+
+.btn-label-danger {
+    background: #fff5f5;
+    color: #e53e3e;
+    border: 1px solid #feb2b2;
+}
+
+.btn-label-danger:hover {
+    background: #e53e3e;
+    color: white;
+}
+
+/* Table Style */
+.table-sm td {
+    padding: 8px 0;
+}
+
+/* Sidebar Styling */
+.invoice-actions .card {
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+}
+
+.form-check-input:checked {
+    background-color: #48bb78;
+    border-color: #48bb78;
 }

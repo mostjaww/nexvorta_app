@@ -232,7 +232,8 @@ if (document.getElementById("detailName")) {
     let qty = 1;
 
     document.getElementById("detailName").innerText = product.name;
-    document.getElementById("detailDescription").innerText = product.deskription;
+    document.getElementById("detailDescription").innerText =
+      product.deskription;
     document.getElementById("detailPrice").innerText =
       "Rp " + product.price.toLocaleString();
     document.getElementById("detailImage").src = product.img;
@@ -294,5 +295,33 @@ checkoutBtn?.addEventListener("click", function () {
   }).then(() => {
     cart = [];
     updateCart();
+  });
+  
+  const btn = document.getElementById("download-btn");
+
+  btn.addEventListener("click", () => {
+    // Pilih elemen yang ingin dikonversi
+    const element = document.getElementById("content");
+
+    // Pengaturan opsional (nama file, margin, dll)
+    const opt = {
+      margin: 1,
+      filename: "invoice.pdf",
+      image: {
+        type: "jpeg",
+        quality: 0.98,
+      },
+      html2canvas: {
+        scale: 2,
+      },
+      jsPDF: {
+        unit: "in",
+        format: "letter",
+        orientation: "portrait",
+      },
+    };
+
+    // Jalankan perintah download
+    html2pdf().set(opt).from(element).save();
   });
 });

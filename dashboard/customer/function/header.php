@@ -9,6 +9,9 @@
     <link href="assets/css/dashboard/customer.css" rel="stylesheet">
     <link href="assets/img/logo_2.png" rel="icon" />
     <link href="assets/img/logo_2.png" rel="apple-touch-icon" />
+    <link rel="stylesheet" href="assets/vendor/css/pages/app-invoice.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/flatpickr/flatpickr.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 </head>
 
 <body class="d-flex flex-column min-vh-100">
