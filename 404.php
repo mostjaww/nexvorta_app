@@ -121,19 +121,19 @@
         </div>
 
         <div class="error-code">404</div>
-        <div class="error-title">Halaman Tidak Ditemukan</div>
+        <div class="error-title">Page Not Found</div>
 
         <div class="error-text">
-            Maaf, halaman yang Anda akses tidak tersedia atau telah dipindahkan.
-            Silakan kembali ke halaman utama.
+            Sorry, the page you are looking for does not exist or has been moved.
+            Please go back to the homepage.
         </div>
 
         <a href="<?php echo $base_url; ?>" class="btn btn-home">
-            <i class="fas fa-sign-in-alt"></i> Kembali ke Beranda
+            <i class="fas fa-sign-in-alt"></i> Back to Home
         </a>
 
-        <a href="javascript:history.back()" class="btn btn-secondary-custom">
-            <i class="fas fa-arrow-left"></i> Kembali
+        <a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=user/login"; ?>" class="btn btn-secondary-custom">
+            <i class="fas fa-arrow-left"></i> Login
         </a>
     </div>
 

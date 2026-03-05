@@ -9,11 +9,11 @@
           <p>Medan, Indonesia</p>
           <p class="mt-3">
             <strong>Phone:</strong>
-            <a href="tel:+6285119064758" style="font-size: small;">+62 851-1906-4758</a>
+            <a href="tel:+6285119064758" style="font-size: small; text-transform: lowercase;">+62 851-1906-4758</a>
           </p>
           <p>
             <strong>Email:</strong>
-            <a href="mailto:nexvorta@gmail.com" style="font-size: small;">nexvorta@gmail.com</a>
+            <a href="mailto:nexvorta@gmail.com" style="font-size: small; text-transform: lowercase;">nexvorta@gmail.com</a>
           </p>
         </div>
       </div>
