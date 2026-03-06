@@ -296,7 +296,7 @@ checkoutBtn?.addEventListener("click", function () {
     cart = [];
     updateCart();
   });
-  
+
   const btn = document.getElementById("download-btn");
 
   btn.addEventListener("click", () => {
@@ -323,5 +323,14 @@ checkoutBtn?.addEventListener("click", function () {
 
     // Jalankan perintah download
     html2pdf().set(opt).from(element).save();
+  });
+
+  flatpickr(".date-picker", {
+    dateFormat: "Y-m-d",
+    // Menyesuaikan dengan tema gelap Anda
+    onReady: function (selectedDates, dateStr, instance) {
+      instance.calendarContainer.style.background = "#112240";
+      instance.calendarContainer.style.borderColor = "#1e293b";
+    },
   });
 });

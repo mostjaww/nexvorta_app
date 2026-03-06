@@ -119,10 +119,11 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="assets/js/dashboard/customer.js"></script>
 <script src="assets/js/dashboard/darkmode.js"></script>
 <script src="assets/js/dashboard/nexva_ai.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="assets/js/offcanvas-send-invoice.js"></script>
 <script src="assets/js/app-invoice-add.js"></script>
 <script src="assets/vendor/js/helpers.js"></script>
@@ -141,7 +142,6 @@
 <script src="assets/vendor/libs/flatpickr/flatpickr.js"></script>
 <script src="assets/vendor/libs/cleave-zen/cleave-zen.js"></script>
 <script src="assets/vendor/libs/jquery-repeater/jquery-repeater.js"></script>
-
 </body>
 
 </html>

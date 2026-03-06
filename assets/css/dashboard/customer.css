@@ -467,11 +467,6 @@ body.dark-mode .search-input {
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
 }
 
-input,
-select {
-    border-radius: 10px !important;
-}
-
 .navbar-custom {
     background: linear-gradient(135deg, #023e8a, #0077b6);
     padding: 12px 0;

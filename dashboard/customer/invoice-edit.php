@@ -1,4 +1,4 @@
-<?php include 'dashboard/customer/function/header.php'; ?>
+<?php include 'function/header.php'; ?>
 
 <main class="main py-5">
     <div class="content-wrapper">
@@ -16,6 +16,7 @@
                                         <span class="app-brand-text fw-bold text-white" style="font-family: 'Jost', sans-serif; text-transform: uppercase;">Nexvorta</span>
                                     </div>
                                     <p class="mb-1 text-white"><i class="bi bi-geo-alt me-2"></i>Office 149, 450 South Brand Brooklyn</p>
+                                    <p class="mb-1 text-white"><i class="bi bi-envelope me-2"></i>San Diego County, CA 91905, USA</p>
                                     <p class="mb-1 text-white"><i class="bi bi-telephone me-2"></i>+1 (123) 456 7891</p>
                                 </div>
                                 <div class="invoice-info-box">
@@ -26,11 +27,21 @@
                                     <div class="d-flex flex-column gap-2">
                                         <div class="d-flex justify-content-between gap-3">
                                             <span class="text-white">Date Issued:</span>
-                                            <input type="date" class="form-control form-control-sm border-0 py-0 px-2 w-px-150" />
+                                            <div class="input-group input-group-merge w-px-100">
+                                                <input type="text" class="form-control form-control-sm border-0 bg-white-transparent text-white date-picker" placeholder="<?php echo date('Y-m-d'); ?>" />
+                                                <span class="input-group-text border-0 bg-white-transparent">
+                                                    <i class="bi bi-calendar3 text-white"></i>
+                                                </span>
+                                            </div>
                                         </div>
                                         <div class="d-flex justify-content-between gap-3">
                                             <span class="text-white">Due Date:</span>
-                                            <input type="date" class="form-control form-control-sm border-0 py-0 px-2 w-px-150" />
+                                            <div class="input-group input-group-merge w-px-100">
+                                                <input type="text" class="form-control form-control-sm border-0 bg-white-transparent text-white date-picker" placeholder="<?php echo date('Y-m-d', strtotime('+30 days')); ?>" />
+                                                <span class="input-group-text border-0 bg-white-transparent">
+                                                    <i class="bi bi-calendar3 text-white"></i>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -53,6 +64,7 @@
                                     <div class="client-details p-3 rounded-3">
                                         <p class="mb-1 fw-medium">Shelby Company Limited</p>
                                         <p class="mb-1 small text-muted">Small Heath, B10 0HF, UK</p>
+                                        <p class="mb-1 small text-muted">718-986-6062</p>
                                         <p class="mb-0 small text-muted">peakyFBlinders@gmail.com</p>
                                     </div>
                                 </div>
@@ -128,7 +140,8 @@
                             <div class="row">
                                 <div class="col-md-6 mb-md-0 mb-4">
                                     <label class="form-label fw-bold small">Salesperson Note</label>
-                                    <textarea class="form-control border-dashed" rows="3" placeholder="Write a note..."></textarea>
+                                    <input type="text" class="form-control form-control-sm bg-white-transparent text-muted mb-2" placeholder="Alfie Solomons" />
+                                    <textarea class="form-control border-dashed" rows="1" placeholder="Thanks for your business!"></textarea>
                                 </div>
                                 <div class="col-md-6 d-flex justify-content-md-end">
                                     <div class="w-px-250">
@@ -137,7 +150,7 @@
                                         <div class="d-flex justify-content-between mb-3"><span>Tax:</span><span>21%</span></div>
                                         <div class="border-top pt-3 d-flex justify-content-between align-items-center">
                                             <span class="h5 mb-0">Total:</span>
-                                            <span class="h4 mb-0 text-primary fw-bold">$1690</span>
+                                            <span class="h4 mb-0 text-primary fw-bold">$1,690.00</span>
                                         </div>
                                     </div>
                                 </div>
@@ -146,18 +159,22 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-12">
+                <div class="col-xl-3 col-md-4 col-12 invoice-actions">
                     <div class="card mb-4 shadow-sm">
                         <div class="card-body">
                             <button class="btn btn-primary w-100 mb-3 shadow-primary" data-bs-toggle="offcanvas" data-bs-target="#sendInvoiceOffcanvas">
                                 <i class="bi bi-send me-2"></i> Send Invoice
                             </button>
-                            <div class="d-flex gap-2">
-                                <a class="btn btn-secondary w-100" href="index.php?token=<?= encrypt(date('Ymd')); ?>&hal=dashboard/customer/invoice-page/invoice-preview">Preview</a>
+                            <div class="d-flex gap-2 mb-4">
+                                <a class="btn btn-secondary w-100" href="index.php?token=<?= encrypt(date('Ymd')); ?>&hal=dashboard/customer/invoice-preview">Preview</a>
                                 <button class="btn btn-secondary w-100" id="download-btn">Save</button>
                             </div>
+                            <button class="btn btn-success d-grid w-100" data-bs-toggle="offcanvas" data-bs-target="#addPaymentOffcanvas">
+                                <span class="d-flex align-items-center justify-content-center text-nowrap"><i class="bi bi-currency-dollar me-2"></i>Add Payment</span>
+                            </button>
                         </div>
                     </div>
+
                     <div class="card p-4">
                         <label class="form-label fw-bold small mb-3">Accept Payments Via</label>
                         <select class="form-select mb-4">
@@ -218,15 +235,76 @@
                     </div>
                     <div class="d-flex flex-wrap mb-6">
                         <button type="button" class="me-4 btn btn-primary" data-bs-dismiss="offcanvas"> Send </button>
-                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="offcanvas"> Cancel </button>
+                        <button type="button" class="btn btn-outline-primary" data-bs-dismiss="offcanvas"> Cancel </button>
                     </div>
                 </form>
             </div>
         </div>
         <!-- /Send Invoice Sidebar -->
 
+        <!-- Add Payment Sidebar -->
+        <div class="offcanvas offcanvas-end border-0" id="addPaymentOffcanvas" aria-hidden="true">
+            <div class="offcanvas-header border-bottom border-secondary">
+                <h5 class="offcanvas-title">Add Payment</h5>
+                <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+
+            <div class="offcanvas-body flex-grow-1">
+                <div class="d-flex justify-content-between align-items-center p-3 mb-4 rounded-3" style="background: rgba(56, 189, 248, 0.1); border: 1px dashed #38bdf8;">
+                    <p class="mb-0">Invoice Balance:</p>
+                    <p class="fw-bold mb-0 product-price h5">$5,000.00</p>
+                </div>
+
+                <form>
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold text-uppercase text-muted" for="invoiceAmount">Payment Amount</label>
+                        <div class="input-group input-group-merge">
+                            <span class="input-group-text bg-dark border-secondary text-white">$</span>
+                            <input type="number" id="invoiceAmount" class="form-control bg-transparent border-secondary" placeholder="100" />
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold text-uppercase text-muted" for="payment-date">Payment Date</label>
+                        <div class="input-group">
+                            <input id="payment-date" class="form-control bg-transparent border-secondary date-picker" type="text" placeholder="YYYY-MM-DD" />
+                            <span class="input-group-text bg-dark border-secondary text-white"><i class="bi bi-calendar3"></i></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold text-uppercase text-muted" for="payment-method">Payment Method</label>
+                        <select class="form-select bg-transparent border-secondary" id="payment-method">
+                            <option value="" selected disabled>Select method</option>
+                            <option value="Cash">Cash</option>
+                            <option value="Bank Transfer">Bank Transfer</option>
+                            <option value="Debit Card">Debit Card</option>
+                            <option value="Credit Card">Credit Card</option>
+                            <option value="Paypal">Paypal</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-5">
+                        <label class="form-label small fw-bold text-uppercase text-muted" for="payment-note">Internal Payment Note</label>
+                        <textarea class="form-control bg-transparent border-secondary text-white" id="payment-note" rows="3" placeholder="Add a note..."></textarea>
+                    </div>
+
+                    <div class="d-flex gap-3">
+                        <button type="button" class="btn btn-primary flex-grow-1" data-bs-dismiss="offcanvas">
+                            <i class="bi bi-check2-circle me-1"></i> Send Payment
+                        </button>
+                        <button type="button" class="btn btn-outline-primary flex-grow-1" data-bs-dismiss="offcanvas">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /Add Payment Sidebar -->
+
+
         <!-- /Offcanvas -->
     </div>
 </main>
 
-<?php include 'dashboard/customer/function/footer.php'; ?>
+<?php include 'function/footer.php'; ?>
