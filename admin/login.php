@@ -21,7 +21,7 @@ function gantiformathp($nomorhp)
 if (isset($_POST['btnOTP'])) {
     $username = mysqli_real_escape_string($link, $_POST['username']);
     $passwd = md5($keycode . mysqli_real_escape_string($link, $_POST['passwd']));
-    
+
     $query = "SELECT * FROM tbluser tu LEFT JOIN tblrole tr ON tu.role_id=tr.role_id WHERE tu.user_nm='$username' and tu.user_passwd='$passwd'";
     $result = mysqli_query($link, $query);
     $r = mysqli_fetch_assoc($result);
@@ -44,7 +44,7 @@ if (isset($_POST['btnOTP'])) {
             $otp = rand(1000, 9999);
             mysqli_query($link, "UPDATE tbluser SET user_otp = '$otp' WHERE user_id='" . $r['user_id'] . "'");
             $_SESSION['otp'] = $otp;
-            
+
             $text = "Hai, kode verifikasi login *Dashboard* Anda adalah *$otp*.\nDemi keamanan, jangan berikan kode ini kepada siapapun!";
             $texttelegram = "Hai, kode verifikasi login <b>Dashboard</b> Anda adalah <b>$otp</b>.\nDemi keamanan, jangan berikan kode ini kepada siapapun!";
 
@@ -55,7 +55,7 @@ if (isset($_POST['btnOTP'])) {
                     $wa_api_url = "http://114.4.226.114:8000/send/message";
                     $wa_number = gantiformathp($r['user_nohp']);
                     $post_data = http_build_query(["phone" => $wa_number, "message" => $text]);
-                    
+
                     $curl = curl_init();
                     curl_setopt_array($curl, [
                         CURLOPT_URL => $wa_api_url,
@@ -66,7 +66,7 @@ if (isset($_POST['btnOTP'])) {
                     ]);
                     curl_exec($curl);
                     curl_close($curl);
-                    
+
                     $_SESSION['method'] = "WhatsApp";
                     $success_msg = "OTP terkirim ke WhatsApp! Cek Whatsapp Anda.";
                 }
@@ -77,7 +77,7 @@ if (isset($_POST['btnOTP'])) {
                 } else {
                     // Pastikan $token_bottelegram sudah didefinisikan di file config.php
                     $url_telegram = "https://api.telegram.org/bot" . $token_bottelegram . "/sendMessage?chat_id=" . $r['user_telegram'] . "&text=" . urlencode($texttelegram) . "&parse_mode=html";
-                    
+
                     // Kirim pesan (menggunakan @ untuk menekan error jika koneksi gagal)
                     @file_get_contents($url_telegram);
 
@@ -157,16 +157,16 @@ if (isset($_POST['btnLogin'])) {
 <body>
     <div class="login-container">
         <div class="login-left">
-            <img src="<?php echo $base_url; ?>assets\img\logo\dashboard.png" alt="Logo Dashboard" class="login-logo">
-            <div class="app-title">Dashboard</div>
-            <div class="app-subtitle">Dashboard Monitoring</div>
+            <img src="<?php echo $base_url; ?>assets\img\logo\nexva.png" alt="Logo Dashboard" class="login-logo">
+            <div class="app-title" style="font-family: 'Josh', sans-serif;">Nexvorta Dashboard</div>
+            <div class="app-subtitle">Admin Dashboard Monitoring</div>
             <div class="app-subtitle mt-2"></div>
         </div>
 
         <div class="login-right">
             <div class="login-header">
-                <h3>Selamat Datang!</h3>
-                <p>Silakan masuk untuk mengakses dashboard.</p>
+                <h3>Welcome!</h3>
+                <p>Please sign in to your account</p>
             </div>
 
             <form action="" method="post" autocomplete="off">
@@ -176,20 +176,23 @@ if (isset($_POST['btnLogin'])) {
                 </div>
 
                 <div class="form-floating mb-3 position-relative">
-                    <input type="password" class="form-control" id="passwd" name="passwd" placeholder="Password" required>
+                    <input type="password" class="form-control mb-2" id="passwd" name="passwd" placeholder="Password" required>
                     <label for="passwd"><i class="fa fa-lock me-2"></i>Password</label>
                     <span onclick="togglePassword()" style="position: absolute; right: 15px; top: 18px; cursor: pointer; color: #888;">
                         <i class="fa fa-eye" id="toggleIcon"></i>
                     </span>
+                    <div class="text-end mb-3">
+                        <a href="#" class="text-decoration-none">Forgot Password?</a>
+                    </div>
                 </div>
 
                 <?php if (isset($_SESSION['otp'])): ?>
                     <div class="form-floating mb-4">
                         <input type="text" class="form-control text-center fw-bold letter-spacing-2" id="otp" name="otp" placeholder="Kode OTP" style="letter-spacing: 5px; font-size: 1.2rem;">
-                        <label for="otp">Masukkan Kode OTP</label>
+                        <label for="otp">Enter OTP Code</label>
                     </div>
-                    
-                    <button type="submit" name="btnLogin" class="btn btn-primary-custom mb-3">MASUK KE DASHBOARD</button>
+
+                    <button type="submit" name="btnLogin" class="btn btn-primary-custom mb-3">LOGIN</button>
                 <?php else: ?>
 
                     <!-- <button type="submit" name="btnOTP" value="whatsapp" class="btn-wa">
@@ -197,12 +200,15 @@ if (isset($_POST['btnLogin'])) {
                     </button> -->
                     <br>
                     <button type="submit" name="btnOTP" value="telegram" class="btn-tele">
-                        <i class="fab fa-telegram fa-lg"></i> Kirim OTP via Telegram
+                        <i class="fab fa-telegram fa-lg"></i> Send OTP via Telegram
                     </button>
                 <?php endif; ?>
                 <br>
                 <div class="d-flex justify-content-center">
-                    <button type="button" class="btn btn-secondary mb-3" onclick="location.href='/nexvorta_apps/dashboard'">KEMBALI KE DASHBOARD</button>
+                    <button type="button" class="btn btn-secondary mb-3" onclick="location.href='/nexvorta_apps/dashboard'">BACK TO DASHBOARD</button>
+                </div>
+                <div class="text-center mb-3">
+                    <a href="#" class="text-decoration-none">Don't have an account? Sign Up</a>
                 </div>
 
                 <input type="hidden" id="koor" name="koor">

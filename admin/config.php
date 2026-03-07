@@ -1,5 +1,5 @@
 <?php
-$keycode = "TanyaDuoTri!!!";
+$keycode = "NexvortaApps2026";
 date_default_timezone_set("Asia/Jakarta");
 
 // --- KONEKSI 1 (Dashboard) ---
@@ -13,7 +13,7 @@ if (!$link) {
 	die("Koneksi ke conn gagal: " . mysqli_connect_error());
 }
 
-$base_url = 'http://localhost/admin/';
+$base_url = 'http://localhost/nexvorta_apps/admin/';
 
 
 $idx 		= mysqli_real_escape_string($link, '1');

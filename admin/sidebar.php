@@ -124,8 +124,8 @@ if ($_SESSION['user_id'] == '') {
 <nav class="sidebar sidebar-bunker">
 
     <div class="profile-element d-flex align-items-center flex-shrink-0">
-        <div class="avatar online mr-3">
-            <img src="<?php echo $base_url; ?>assets\img\logo\dashboard.png" class="img-fluid rounded-circle shadow-sm" alt="" style="width: 45px; height: 45px; border: 2px solid rgba(255,255,255,0.5);">
+        <div class="avatar online">
+            <img src="<?php echo $base_url; ?>assets\img\logo\nexva.png" class="img-fluid rounded-circle shadow-sm" alt="" style="width: 100%; height: 100%; border: 1px solid rgba(255,255,255,0.5);">
         </div>
         <div class="profile-text text-white">
             <h6 class="m-0 text-white" style="font-size:15px; font-weight:700; letter-spacing: 0.5px;"><?php echo $_SESSION['user_nama'] ?></h6>
