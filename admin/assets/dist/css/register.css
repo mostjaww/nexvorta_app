@@ -14,7 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+    background: linear-gradient(135deg, #023e8a, #0077b6);
 }
 
 .container {
@@ -126,7 +126,7 @@ form {
     text-align: left;
     font-size: 12px;
     font-weight: 600;
-    color: #7494ec;
+    color: #24a3e8;
     margin-bottom: 5px;
     text-transform: uppercase;
 }
@@ -143,7 +143,7 @@ form {
 .btn {
     width: 100%;
     height: 48px;
-    background: #7494ec;
+    background: #24a3e8;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     border: none;
@@ -151,6 +151,11 @@ form {
     font-size: 16px;
     color: #fff;
     font-weight: 600;
+}
+
+.btn:hover {
+    background: #023e8a;
+    transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
 
 .social-icons {
@@ -180,7 +185,7 @@ form {
     left: -250%;
     width: 300%;
     height: 100%;
-    background: #7494ec;
+    background: #24a3e8;
     /* border: 2px solid red; */
     border-radius: 50px;
     z-index: 2;
@@ -298,4 +303,49 @@ form {
     .toggle-panel h1 {
         font-size: 30px;
     }
+}
+
+.footer-text {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #888;
+}
+
+.logo-toggle {
+    width: 120px;
+    /* Sesuaikan ukuran lebar logo Anda */
+    height: auto;
+    margin-bottom: 20px;
+    /* Memberi jarak antara logo dan H1 */
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.1));
+    /* Opsional: agar logo lebih manis */
+}
+
+/* Pastikan panel toggle tetap terpusat */
+.toggle-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.forgot-link {
+    margin: -15px 0 15px;
+    text-align: right;
+    /* Ini akan menggeser teks ke kanan */
+}
+
+.forgot-link a {
+    font-size: 13px;
+    /* Sedikit diperkecil agar lebih manis */
+    color: #333;
+    transition: .3s;
+}
+
+.forgot-link a:hover {
+    color: #7494ec;
+    /* Berubah warna saat di-hover */
+    text-decoration: underline;
 }

@@ -1,3 +1,131 @@
+<?php
+session_start();
+include_once "config.php";
+
+// Reset OTP ketika membuka halaman login
+if (!isset($_POST['btnOTP']) && !isset($_POST['btnLogin'])) {
+    unset($_SESSION['otp']);
+}
+
+$error_msg = "";
+$success_msg = "";
+$info_msg = "";
+
+/* =================================
+   STEP 1 : KIRIM OTP
+================================= */
+if (isset($_POST['btnOTP'])) {
+
+    $username = mysqli_real_escape_string($link, $_POST['username']);
+    $passwd   = md5($keycode . mysqli_real_escape_string($link, $_POST['passwd']));
+
+    /* ===============================
+       CEK CUSTOMER
+    =============================== */
+    $query = mysqli_query($link, "SELECT * FROM tblcustomer 
+                                  WHERE username='$username' 
+                                  AND password='$passwd'");
+
+    if (mysqli_num_rows($query) == 1) {
+
+        $r = mysqli_fetch_assoc($query);
+
+        $_SESSION['login_type'] = "customer";
+        $_SESSION['user_id'] = $r['id'];
+        $_SESSION['username'] = $r['username'];
+        $_SESSION['name'] = $r['name'];
+        $_SESSION['telegram'] = $r['telegram_id'];
+    } else {
+
+        /* ===============================
+           CEK SELLER
+        =============================== */
+        $query = mysqli_query($link, "SELECT * FROM tblseller 
+                                      WHERE username='$username' 
+                                      AND password='$passwd'");
+
+        if (mysqli_num_rows($query) == 1) {
+
+            $r = mysqli_fetch_assoc($query);
+
+            $_SESSION['login_type'] = "seller";
+            $_SESSION['user_id'] = $r['id'];
+            $_SESSION['username'] = $r['username'];
+            $_SESSION['name'] = $r['name'];
+            $_SESSION['telegram'] = $r['telegram_id'];
+        } else {
+
+            $error_msg = "Username atau Password salah!";
+        }
+    }
+
+    /* ===============================
+   JIKA USER DITEMUKAN
+=============================== */
+
+    if (isset($_SESSION['user_id']) && isset($_SESSION['login_type'])) {
+
+        $otp = rand(1000, 9999);
+        $_SESSION['otp'] = $otp;
+
+        if ($_SESSION['login_type'] == "customer") {
+
+            mysqli_query($link, "UPDATE tblcustomer 
+                             SET otp='$otp' 
+                             WHERE id='" . $_SESSION['user_id'] . "'");
+        } else {
+
+            mysqli_query($link, "UPDATE tblseller 
+                             SET otp='$otp' 
+                             WHERE id='" . $_SESSION['user_id'] . "'");
+        }
+
+        $text = "🔐 Nexvorta Login OTP\n\n"
+            . "Hai " . $_SESSION['name'] . "\n\n"
+            . "Kode OTP login Anda adalah:\n\n"
+            . "👉 $otp\n\n"
+            . "Jangan berikan kode ini kepada siapapun.";
+
+        $url = "https://api.telegram.org/bot" . $token_bottelegram .
+            "/sendMessage?chat_id=" . $_SESSION['telegram'] .
+            "&text=" . urlencode($text);
+
+        @file_get_contents($url);
+
+        $success_msg = "OTP berhasil dikirim ke Telegram!";
+    }
+}
+
+
+/* =================================
+   STEP 2 : VALIDASI OTP
+================================= */
+
+if (isset($_POST['btnLogin'])) {
+
+    $otp_input = $_POST['otp'];
+
+    if (isset($_SESSION['otp']) && $otp_input == $_SESSION['otp']) {
+
+        if ($_SESSION['login_type'] == "customer") {
+            $page = encrypt(date('Ymd')) . "&hal=dashboard/customer/index";
+        } else {
+
+            $page = encrypt(date('Ymd')) . "&hal=dashboard/seller/index";
+        }
+
+        $link_tujuan = "index.php?token=" . $page;
+
+        unset($_SESSION['otp']);
+
+        header("Location: $link_tujuan");
+        exit;
+    } else {
+        $error_msg = "OTP tidak sesuai! Silahkan cek Telegram Anda.";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +135,7 @@
     <meta name="description" content="Login to Nexvorta Dashboard">
     <meta name="author" content="Nexvorta Team">
     <title>Login | Nexvorta - Export & Import Solutions</title>
-    <link rel="shortcut icon" href="<?php echo $title_icon; ?>">
+    <link rel="shortcut icon" href="assets/img/nexva.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/fontawesome.min.css" rel="stylesheet">
     <link href="assets/css/login.css" rel="stylesheet">
@@ -48,7 +176,13 @@
 
                     <!-- USERNAME -->
                     <div class="mb-3 form-floating">
-                        <input type="text" class="rounded-3 form-control" id="username" name="username" placeholder="Username" required>
+                        <input type="text"
+                            class="rounded-3 form-control"
+                            id="username"
+                            name="username"
+                            placeholder="Username"
+                            value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>"
+                            required>
                         <label for="username">
                             <i class="me-2 fa fa-user"></i>Username
                         </label>
@@ -56,7 +190,13 @@
 
                     <!-- PASSWORD -->
                     <div class="position-relative form-floating">
-                        <input type="password" class="rounded-3 form-control" id="passwd" name="passwd" placeholder="Password" required>
+                        <input type="password"
+                            class="rounded-3 form-control"
+                            id="passwd"
+                            name="passwd"
+                            placeholder="Password"
+                            value="<?php echo isset($_POST['passwd']) ? htmlspecialchars($_POST['passwd']) : ''; ?>"
+                            required>
                         <label for="passwd">
                             <i class="me-2 fa fa-lock"></i>Password
                         </label>
@@ -89,7 +229,7 @@
 
                         <button type="submit" name="btnLogin"
                             class="py-2 rounded-3 w-100 btn btn-primary">
-                            Login to Dashboard
+                            Login
                         </button>
 
                     <?php else: ?>
@@ -177,27 +317,25 @@
     };
 
     // SweetAlert Notifikasi
-    <?php if (isset($error_msg)): ?>
+    <?php if (!empty($error_msg)): ?>
         Swal.fire({
             icon: 'error',
             title: 'Login Failed',
-            text: 'Please check your credentials',
             text: '<?php echo $error_msg; ?>',
             confirmButtonColor: '#d33'
         });
     <?php endif; ?>
 
-    <?php if (isset($success_msg)): ?>
+    <?php if (!empty($success_msg)): ?>
         Swal.fire({
             icon: 'success',
-            title: 'Login Success',
-            text: 'Redirecting to Dashboard!',
+            title: 'Success',
             text: '<?php echo $success_msg; ?>',
             confirmButtonColor: '#25D366'
         });
     <?php endif; ?>
 
-    <?php if (isset($info_msg)): ?>
+    <?php if (!empty($info_msg)): ?>
         Swal.fire({
             icon: 'info',
             title: 'Info',

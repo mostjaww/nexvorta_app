@@ -82,25 +82,21 @@ if (isset($_POST['btnRegister'])) {
                     <i class='bx bxs-lock-alt'></i>
                 </div>
                 <div class="forgot-link">
-                    <a href="#">Forgot Password?</a>
+                    <a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=forgot-password"; ?>" class="text-decoration-none">Forgot Password?</a>
                 </div>
                 <button type="submit" class="btn">Login</button>
-                <p>or login with social platforms</p>
-                <div class="social-icons">
-                    <a href="#"><i class='bx bxl-google'></i></a>
-                    <a href="#"><i class='bx bxl-facebook'></i></a>
-                    <a href="#"><i class='bx bxl-github'></i></a>
-                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                <div class="footer-text mt-3 text-center">
+                    &copy; <?php echo date('Y'); ?> <strong>Nexvorta</strong>. All rights reserved.
                 </div>
             </form>
         </div>
 
         <div class="form-box register">
             <form action="" method="POST" style="overflow-y: auto; max-height: 100%;">
-                <h1>Registration Nexvorta</h1>
+                <h1>Nexvorta Admin Sign Up</h1>
 
                 <div class="input-box">
-                    <input type="text" name="nama" placeholder="Nama Lengkap" required>
+                    <input type="text" name="nama" placeholder="Full Name" required>
                     <i class='bx bxs-id-card'></i>
                 </div>
 
@@ -151,13 +147,15 @@ if (isset($_POST['btnRegister'])) {
 
         <div class="toggle-box">
             <div class="toggle-panel toggle-left">
-                <h1>Hello, Welcome!</h1>
+                <img src="assets/img/logo/nexva.png" alt="Nexvorta Logo" class="logo-toggle">
+                <h1>Welcome Back!</h1>
                 <p>Don't have an account?</p>
-                <button class="btn register-btn">Register</button>
+                <button class="btn register-btn">Sign Up</button>
             </div>
 
             <div class="toggle-panel toggle-right">
-                <h1>Welcome Back!</h1>
+                <img src="assets/img/logo/nexva.png" alt="Nexvorta Logo" class="logo-toggle">
+                <h1>Hello, Welcome!</h1>
                 <p>Already have an account?</p>
                 <button class="btn login-btn">Login</button>
             </div>

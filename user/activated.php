@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="assets/css/activated.css">
-    <link rel="shortcut icon" href="<?php echo $title_icon; ?>">
+    <link rel="shortcut icon" href="assets/img/nexva.png" type="image/x-icon">
 </head>
 
 <body>

@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="description" content="Register to Nexvorta Dashboard">
     <meta name="author" content="Nexvorta Team">
     <title>Register | Nexvorta - Export & Import Solutions</title>
-    <link rel="shortcut icon" href="<?php echo $title_icon; ?>">
+    <link rel="shortcut icon" href="assets/img/nexva.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/fontawesome.min.css" rel="stylesheet">
     <link href="assets/css/register.css" rel="stylesheet">

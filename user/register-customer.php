@@ -26,15 +26,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $error = "Username atau Email sudah digunakan!";
         } else {
 
-            $password_hash = password_hash($password, PASSWORD_DEFAULT);
+            // HASH PASSWORD MENGGUNAKAN KEYCODE
+            $password_hash = md5($keycode . $password);
 
-            // Generate OTP 6 digit
+            // Generate OTP
             $otp = rand(100000, 999999);
 
             $query = "INSERT INTO tblcustomer 
-                      (name, username, email, birth, password, telegram_id, otp, is_active, created_at)
-                      VALUES 
-                      ('$name','$username','$email','$birth','$password_hash','$telegram','$otp','Need Activation',NOW())";
+                  (name, username, email, birth, password, telegram_id, otp, is_active, created_at)
+                  VALUES 
+                  ('$name','$username','$email','$birth','$password_hash','$telegram','$otp','Need Activation',NOW())";
 
             if (mysqli_query($link, $query)) {
 
@@ -46,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     . "Kode OTP ini hanya berlaku dalam beberapa menit dan bersifat rahasia.\n"
                     . "Jangan membagikan kode ini kepada pihak manapun.\n\n"
                     . "Terima kasih atas kepercayaan Anda kepada Nexvorta.\n\n"
-                    . "— Tim Nexvorta";
-                    
+                    . "— Nexvorta Team";
+
                 @file_get_contents("https://api.telegram.org/bot" . $token_bottelegram .
                     "/sendMessage?chat_id=" . $telegram .
                     "&text=" . urlencode($text));
@@ -75,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="description" content="Register to Nexvorta Dashboard">
     <meta name="author" content="Nexvorta Team">
     <title>Register | Nexvorta - Export & Import Solutions</title>
-    <link rel="shortcut icon" href="<?php echo $title_icon; ?>">
+    <link rel="shortcut icon" href="assets/img/nexva.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/fontawesome.min.css" rel="stylesheet">
     <link href="assets/css/register.css" rel="stylesheet">

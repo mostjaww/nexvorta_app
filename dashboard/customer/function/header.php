@@ -64,9 +64,30 @@
                         <i class="bi bi-person-circle"></i>
                     </button>
 
-                    <button class="logout-btn">
-                        Logout
-                    </button>
+                    <a  class="logout-btn" style="text-decoration: none;" href="#" onclick="logoutConfirm()"><i class="fa fa-sign-out-alt"></i> Logout</a>
+                    <script>
+                        function logoutConfirm() {
+
+                            let logoutUrl = "index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=user/logout"; ?>";
+
+                            Swal.fire({
+                                title: 'Logout?',
+                                text: "Anda akan keluar dari dashboard Nexvorta",
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonText: 'Yes, Logout',
+                                cancelButtonText: 'Cancel',
+                                confirmButtonColor: '#d33',
+                                cancelButtonColor: '#6c757d'
+                            }).then((result) => {
+
+                                if (result.isConfirmed) {
+                                    window.location.href = logoutUrl;
+                                }
+
+                            });
+                        }
+                    </script>
 
                 </div>
 

@@ -182,7 +182,7 @@ if (isset($_POST['btnLogin'])) {
                         <i class="fa fa-eye" id="toggleIcon"></i>
                     </span>
                     <div class="text-end mb-3">
-                        <a href="#" class="text-decoration-none">Forgot Password?</a>
+                        <a href="index.php?token=<?php echo encrypt(date('Ymd')) . "&hal=forgot-password"; ?>" class="text-decoration-none">Forgot Password?</a>
                     </div>
                 </div>
 

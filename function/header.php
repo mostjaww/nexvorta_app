@@ -22,8 +22,8 @@ include_once 'config.php';
   <!-- base untuk memastikan path relatif bekerja di Firebase Hosting -->
   <base />
 
-  <link href="assets/img/logo_2.png" rel="icon" />
-  <link href="assets/img/logo_2.png" rel="apple-touch-icon" />
+  <link href="assets/img/nexva.png" rel="icon" />
+  <link href="assets/img/nexva.png" rel="apple-touch-icon" />
 
   <link href="https://fonts.googleapis.com/" rel="preconnect" />
   <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin />
