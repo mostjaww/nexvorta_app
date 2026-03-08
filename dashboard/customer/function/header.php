@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Nexvorta - Marketplace</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
     <link href="assets/css/dashboard/customer.css" rel="stylesheet">
     <link href="assets/img/logo_2.png" rel="icon" />
@@ -64,7 +64,7 @@
                         <i class="bi bi-person-circle"></i>
                     </button>
 
-                    <a  class="logout-btn" style="text-decoration: none;" href="#" onclick="logoutConfirm()"><i class="fa fa-sign-out-alt"></i> Logout</a>
+                    <a class="logout-btn" style="text-decoration: none;" href="#" onclick="logoutConfirm()"><i class="fa fa-sign-out-alt"></i> Logout</a>
                     <script>
                         function logoutConfirm() {
 
