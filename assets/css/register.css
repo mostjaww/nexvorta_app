@@ -9,8 +9,8 @@ body {
 
 /* LEFT PANEL */
 .left-panel {
-  background: linear-gradient(135deg, #0d6efd, #00b4d8);
-  color: white;
+    background: linear-gradient(135deg, #104fa1, #0077b6);
+    color: white;
   position: relative;
   overflow: hidden;
 }
@@ -79,7 +79,7 @@ body {
 /* ===== Input Group Icon ===== */
 .input-group-text {
   border-radius: 12px 0 0 12px;
-  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  background: linear-gradient(135deg, #023e8a, #0077b6);
   border: none;
   color: white;
 }
@@ -92,7 +92,7 @@ body {
 
 /* ===== Register Button ===== */
 .btn-dark {
-  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  background: linear-gradient(135deg, #023e8a, #0077b6);
   border: none;
   border-radius: 40px;
   font-size: 14px;
@@ -169,7 +169,7 @@ a:hover {
   border-radius: 50px;
   padding: 14px;
   font-weight: 600;
-  background: linear-gradient(135deg, #0d6efd, #00b4d8);
+  background: linear-gradient(135deg, #023e8a, #0077b6);
   border: none;
   transition: 0.3s ease;
 }

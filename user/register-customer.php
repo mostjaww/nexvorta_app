@@ -15,15 +15,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $telegram  = mysqli_real_escape_string($link, trim($_POST['telegram_id']));
 
     if (empty($name) || empty($username) || empty($email) || empty($birth) || empty($password) || empty($telegram)) {
-        $error = "Semua field wajib diisi!";
+        $error = "All fields are required!";
     } elseif (strlen($password) < 6) {
-        $error = "Password minimal 6 karakter!";
+        $error = "Password must be at least 6 characters long!";
     } else {
 
         // Cek username / email
         $cek = mysqli_query($link, "SELECT id FROM tblcustomer WHERE username='$username' OR email='$email'");
         if (mysqli_num_rows($cek) > 0) {
-            $error = "Username atau Email sudah digunakan!";
+            $error = "Username or Email already in use!";
         } else {
 
             // HASH PASSWORD MENGGUNAKAN KEYCODE
@@ -40,13 +40,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (mysqli_query($link, $query)) {
 
                 // Kirim OTP ke Telegram
-                $text = "Halo $name 👋\n\n"
-                    . "Terima kasih telah melakukan pendaftaran akun di Nexvorta.\n\n"
-                    . "Untuk melanjutkan proses aktivasi akun, silakan gunakan kode OTP berikut:\n\n"
+                $text = "Hello $name 👋\n\n"
+                    . "Thank you for registering an account at Nexvorta.\n\n"
+                    . "To continue the account activation process, please use the following OTP code:\n\n"
                     . "🔐 $otp\n\n"
-                    . "Kode OTP ini hanya berlaku dalam beberapa menit dan bersifat rahasia.\n"
-                    . "Jangan membagikan kode ini kepada pihak manapun.\n\n"
-                    . "Terima kasih atas kepercayaan Anda kepada Nexvorta.\n\n"
+                    . "This OTP code is only valid for a few minutes and is confidential.\n"
+                    . "Do not share this code with anyone.\n\n"
+                    . "Thank you for your trust in Nexvorta.\n\n"
                     . "— Nexvorta Team";
 
                 @file_get_contents("https://api.telegram.org/bot" . $token_bottelegram .
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </script>";
                 exit;
             } else {
-                $error = "Terjadi kesalahan saat menyimpan data.";
+                $error = "An error occurred while saving the data.";
             }
         }
     }
@@ -75,9 +75,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <meta name="description" content="Register to Nexvorta Dashboard">
     <meta name="author" content="Nexvorta Team">
-    <title>Register | Nexvorta - Export & Import Solutions</title>
+    <title>Register Customer | Nexvorta - Export & Import Solutions</title>
     <link rel="shortcut icon" href="assets/img/nexva.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/fontawesome.min.css" rel="stylesheet">
     <link href="assets/css/register.css" rel="stylesheet">
 </head>
@@ -90,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <!-- LEFT BRANDING -->
             <div class="left-panel d-lg-flex align-items-center p-5 col-lg-6 d-none">
                 <div style="z-index:2;">
-                    <h1 class="fw-bold display-4">Nexvorta</h1>
+                    <h1 class="fw-bold display-4"><img src="assets/img/nexva.png" width="80"> Nexvorta</h1>
                     <p class="mb-4 lead">Global Export & Import Platform</p>
                     <p class="opacity-75">
                         Register now and start your international business journey with Nexvorta.
@@ -118,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </script>
                     <?php } ?>
 
-                    <form method="POST" autocomplete="off">
+                    <form method="POST" id="registerForm" autocomplete="off">
 
                         <div class="mb-3 form-floating">
                             <input type="text" name="name" class="form-control" placeholder="Full Name" required>
@@ -145,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 id="password"
                                 name="password"
                                 class="form-control"
-                                oninput="checkStrength()"
+                                onkeyup="checkStrength()"
                                 required>
 
                             <label>Password</label>
@@ -159,30 +160,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         <div class="mt-3 password-rules small">
 
-                            <div id="ruleLength" class="rule-item">
-                                <i class="me-2 fa fa-circle"></i>
+                            <div id="ruleLength" class="rule-item text-muted">
+                                <i class="bi bi-circle-fill me-1"></i>
                                 Minimum 6 characters
                             </div>
 
-                            <div id="ruleUpper" class="rule-item">
-                                <i class="me-2 fa fa-circle"></i>
+                            <div id="ruleUpper" class="rule-item text-muted">
+                                <i class="bi bi-circle-fill me-1"></i>
                                 Contains uppercase letter (A-Z)
                             </div>
 
-                            <div id="ruleNumber" class="rule-item">
-                                <i class="me-2 fa fa-circle"></i>
+                            <div id="ruleNumber" class="rule-item text-muted">
+                                <i class="bi bi-circle-fill me-1"></i>
                                 Contains number (0-9)
                             </div>
 
-                            <div id="ruleSymbol" class="rule-item">
-                                <i class="me-2 fa fa-circle"></i>
+                            <div id="ruleSymbol" class="rule-item text-muted">
+                                <i class="bi bi-circle-fill me-1"></i>
                                 Contains symbol (!@#$)
                             </div>
 
                         </div>
 
-                        <div class="mt-2 password-strength">
-                            <div id="strengthBar"></div>
+                        <div class="progress mt-2" style="height:6px;">
+                            <div id="strengthBar" class="progress-bar bg-danger" style="width:0%"></div>
                         </div>
 
                         <div class="mt-3 mb-4 form-floating">
@@ -215,6 +216,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/js/all.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+
+        const valid = checkStrength();
+
+        if (!valid) {
+            e.preventDefault();
+
+            Swal.fire({
+                icon: 'warning',
+                title: 'Weak Password',
+                text: 'Password must contain at least one uppercase letter, one number, one symbol, and be at least 6 characters long.'
+            });
+        }
+
+    });
+
     function togglePassword() {
         const password = document.getElementById("password");
         const icon = document.getElementById("toggleIcon");
@@ -235,36 +252,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         const password = document.getElementById("password").value;
         const bar = document.getElementById("strengthBar");
 
-        let strength = 0;
-
         const hasLength = password.length >= 6;
         const hasUpper = /[A-Z]/.test(password);
         const hasNumber = /[0-9]/.test(password);
         const hasSymbol = /[^A-Za-z0-9]/.test(password);
 
-        if (hasLength) strength += 25;
-        if (hasUpper) strength += 25;
-        if (hasNumber) strength += 25;
-        if (hasSymbol) strength += 25;
-
-        // Update bar width
-        bar.style.width = strength + "%";
-
-        // Update bar color
-        if (strength <= 25) {
-            bar.style.background = "#dc3545"; // red
-        } else if (strength <= 50) {
-            bar.style.background = "#fd7e14"; // orange
-        } else if (strength <= 75) {
-            bar.style.background = "#0d6efd"; // blue
-        } else {
-            bar.style.background = "#198754"; // green
-        }
-
         updateRule("ruleLength", hasLength);
         updateRule("ruleUpper", hasUpper);
         updateRule("ruleNumber", hasNumber);
         updateRule("ruleSymbol", hasSymbol);
+
+        let strength = 0;
+
+        if (hasLength) strength++;
+        if (hasUpper) strength++;
+        if (hasNumber) strength++;
+        if (hasSymbol) strength++;
+
+        let percent = (strength / 4) * 100;
+
+        bar.style.width = percent + "%";
+
+        bar.classList.remove("bg-danger", "bg-warning", "bg-info", "bg-success");
+
+        if (percent <= 25) {
+            bar.classList.add("bg-danger");
+        } else if (percent <= 50) {
+            bar.classList.add("bg-warning");
+        } else if (percent <= 75) {
+            bar.classList.add("bg-info");
+        } else {
+            bar.classList.add("bg-success");
+        }
+
     }
 
     function updateRule(id, valid) {
@@ -273,14 +293,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         const icon = el.querySelector("i");
 
         if (valid) {
+
             el.classList.add("valid");
-            icon.classList.remove("fa-circle");
-            icon.classList.add("fa-check-circle");
+
+            icon.classList.remove("bi-circle-fill");
+            icon.classList.add("bi-check-circle-fill");
+
         } else {
+
             el.classList.remove("valid");
-            icon.classList.remove("fa-check-circle");
-            icon.classList.add("fa-circle");
+
+            icon.classList.remove("bi-check-circle-fill");
+            icon.classList.add("bi-circle-fill");
+
         }
+
     }
 </script>
 
